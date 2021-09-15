@@ -1,13 +1,50 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "primereact/resources/themes/saga-blue/theme.css";
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+
+@font-face {
+  font-family: "Cerebri Sans Pro";
+  src: local("Cerebri Sans Pro"),
+    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-Bold.otf) format("opentype");
+}
+@font-face {
+  font-family: "Cerebri Sans Pro";
+  src: local("Cerebri Sans Pro"),
+    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-ExtraBold.otf)
+      format("opentype");
+}
+@font-face {
+  font-family: "Cerebri Sans Pro";
+  src: local("Cerebri Sans Pro"),
+    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-Light.otf) format("opentype");
+}
+@font-face {
+  font-family: "Cerebri Sans Pro";
+  src: local("Cerebri Sans Pro"),
+    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.otf) format("opentype");
+}
+@font-face {
+  font-family: "Cerebri Sans Pro";
+  src: local("Cerebri Sans Pro"),
+    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: "Cerebri Sans Pro";
+  src: local("Cerebri Sans Pro"),
+    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-SemiBold.otf) format("opentype");
+}
+@font-face {
+  font-family: "Cerebri Sans Pro";
+  src: local("Cerebri Sans Pro"),
+    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-Thin.otf) format("opentype");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cerebri Sans Pro";
 }
