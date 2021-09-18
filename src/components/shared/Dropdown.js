@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { compose, space, position, layout, typography } from "styled-system";
 
-import { Dropdown } from "primereact/dropdown";
+import { Dropdown as DDropdown } from "primereact/dropdown";
 
-export const BasicDropdown = styled(Dropdown).attrs({
+export const Dropdown = styled(DDropdown).attrs({
   className: "p-dropdown",
 })`
   ${compose(space, position, layout, typography)}

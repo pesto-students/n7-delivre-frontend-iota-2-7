@@ -1,5 +1,5 @@
 import React from "react";
-import { BasicCarousel } from "../components/shared/Carousel";
+import { Carousel } from "../components/shared/Carousel";
 
 export default {
   title: "Components/Carousel",
@@ -32,8 +32,8 @@ const productTemplate = (product) => (
   />
 );
 
-export const Carousel = () => (
-  <BasicCarousel
+export const CarouselDefault = () => (
+  <Carousel
     value={products}
     numVisible={1}
     responsiveOptions={responsiveOptions}

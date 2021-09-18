@@ -1,8 +1,8 @@
-import { FileUpload } from "primereact/fileupload";
+import { FileUpload as DFileUpload } from "primereact/fileupload";
 import styled from "styled-components";
 import { compose, space, position, layout, typography } from "styled-system";
 
-export const StyledFileUpload = styled(FileUpload)`
+export const FileUpload = styled(DFileUpload)`
   ${compose(space, position, layout, typography)}
   .p-button {
     background: var(--primary);

@@ -1,5 +1,5 @@
 import React from "react";
-import { BasicDialog } from "../components/shared/Dialog";
+import { Dialog } from "../components/shared/Dialog";
 import { PrimaryButton } from "../components/shared/Button";
 
 export default {
@@ -9,12 +9,12 @@ export default {
 const footer = (
   <div>
     <PrimaryButton label="Accept" />
-    <PrimaryButton label="Reject" background="red" />
+    <PrimaryButton label="Reject" background="red" bold />
   </div>
 );
 
-export const Dialog = () => (
-  <BasicDialog
+export const DialogDefault = () => (
+  <Dialog
     header="Header"
     visible={true}
     style={{ width: "50vw" }}
@@ -30,5 +30,5 @@ export const Dialog = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-  </BasicDialog>
+  </Dialog>
 );

@@ -1,8 +1,8 @@
-import { Calendar } from "primereact/calendar";
+import { Calendar as DCalendar } from "primereact/calendar";
 import styled from "styled-components";
 import { compose, space, position, layout, typography } from "styled-system";
 
-export const BasicCalendarInput = styled(Calendar)`
+export const Calendar = styled(DCalendar)`
   ${compose(space, position, layout, typography)}
   .p-button {
     background: var(--primary);

@@ -33,18 +33,10 @@
   src: local("Cerebri Sans Pro"),
     url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-SemiBold.otf) format("opentype");
 }
-@font-face {
-  font-family: "Cerebri Sans Pro";
-  src: local("Cerebri Sans Pro"),
-    url(./fonts/Cerebri.Sans.Pro/CerebriSansPro-Thin.otf) format("opentype");
-}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: "Cerebri Sans Pro";
 }

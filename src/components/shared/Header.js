@@ -6,6 +6,8 @@ import {
 } from "./Button";
 import styled from "styled-components";
 import { space, position, layout, typography, flexbox } from "styled-system";
+import logo from "../../logo.svg";
+import { GoogleIcon } from "./Icon";
 
 const StyledHeader = styled("header").attrs({
   className: "delivre-header",
@@ -19,7 +21,7 @@ const CommonHeader = ({ children }) => (
 
 export const LoginHeader = () => (
   <CommonHeader>
-    <Logo />
+    <Logo logo={logo} />
     <SecondaryButton
       m={[1, 1 / 2]}
       p={3}
@@ -38,13 +40,13 @@ export const LoginHeader = () => (
 
 export const LogoutHeader = () => (
   <CommonHeader>
-    <Logo />
+    <Logo logo={logo} />
     <SignInGoogleButton
       m={[1, 2, 3, 4]}
       p={3}
       width={["100px", "200px", "300px"]}
       label="Sign In With Google"
-      icon="pi pi-google p-px-3"
+      icon={<GoogleIcon color="red" />}
     />
   </CommonHeader>
 );

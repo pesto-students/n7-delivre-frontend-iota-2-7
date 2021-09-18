@@ -1,6 +1,6 @@
 import {
-  BasicInputText,
-  BasicInvalidInput,
+  InputText,
+  InvalidInput,
   IconInputText,
 } from "../components/shared/Input";
 import React from "react";
@@ -10,21 +10,19 @@ export default {
   title: "Components/Input",
 };
 
-export const BasicInput = () => (
-  <BasicInputText placeholder="type anything.." />
-);
+export const BasicInput = () => <InputText placeholder="type anything.." />;
 
 export const DisabledInput = () => (
-  <BasicInputText placeholder="type anything.." disabled />
+  <InputText placeholder="type anything.." disabled />
 );
 
-export const InvalidInput = () => (
-  <BasicInvalidInput placeholder="type anything.." />
+export const InvalidInputDefault = () => (
+  <InvalidInput placeholder="type anything.." />
 );
 
 export const IconInput = () => (
   <IconInputText>
     <SearchIcon />
-    <BasicInputText placeholder="type anything.." />
+    <InputText placeholder="type anything.." />
   </IconInputText>
 );

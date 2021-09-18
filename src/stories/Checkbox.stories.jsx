@@ -1,18 +1,18 @@
 import React from "react";
-import { BasicCheckboxInput } from "../components/shared/Checkbox";
+import { Checkbox } from "../components/shared/Checkbox";
 
 export default {
   title: "Components/Checkbox",
 };
 
 export const CheckedCheckboxInput = () => (
-  <BasicCheckboxInput checked="true" inputId="checked"></BasicCheckboxInput>
+  <Checkbox checked="true" inputId="checked"></Checkbox>
 );
 
 export const UncheckedCheckboxInput = () => (
-  <BasicCheckboxInput inputId="unchecked"></BasicCheckboxInput>
+  <Checkbox inputId="unchecked"></Checkbox>
 );
 
 export const DisabledCheckboxInput = () => (
-  <BasicCheckboxInput inputId="disabled" disabled></BasicCheckboxInput>
+  <Checkbox inputId="disabled" disabled></Checkbox>
 );

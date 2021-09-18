@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { compose, space, position, layout, typography } from "styled-system";
-import { InputText } from "primereact/inputtext";
+import { InputText as DInputText } from "primereact/inputtext";
 
-export const BasicInputText = styled(InputText)`
+export const InputText = styled(DInputText)`
   ${compose(space, position, layout, typography)}
   background: var(--background);
   border-radius: var(--mini);
@@ -17,7 +17,7 @@ export const BasicInputText = styled(InputText)`
   }
 `;
 
-export const BasicInvalidInput = styled(BasicInputText).attrs({
+export const InvalidInput = styled(InputText).attrs({
   className: "p-invalid",
 })(space, position, layout, typography);
 

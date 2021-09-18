@@ -1,5 +1,5 @@
 import React from "react";
-import { BasicTable } from "../components/shared/Table";
+import { Table } from "../components/shared/Table";
 import { Column } from "primereact/column";
 
 export default {
@@ -15,11 +15,11 @@ const data = [
   },
 ];
 
-export const Table = () => (
-  <BasicTable value={data} paginator rows={10} rowHover>
+export const TableDefault = () => (
+  <Table value={data} paginator rows={10} rowHover>
     <Column field="name" header="Name"></Column>
     <Column field="code" header="Code"></Column>
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
-  </BasicTable>
+  </Table>
 );

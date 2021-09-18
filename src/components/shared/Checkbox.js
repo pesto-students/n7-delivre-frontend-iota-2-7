@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { compose, space, position, layout, typography } from "styled-system";
-import { Checkbox } from "primereact/checkbox";
+import { Checkbox as DCheckbox } from "primereact/checkbox";
 
-export const BasicCheckboxInput = styled(Checkbox).attrs({
+export const Checkbox = styled(DCheckbox).attrs({
   className: "p-checkbox",
 })`
   ${compose(space, position, layout, typography)}

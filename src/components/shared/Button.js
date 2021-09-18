@@ -14,7 +14,7 @@ export const StyledPrimaryButtonRaised = styled(StyledPrimaryButton).attrs({
   className: "p-button-raised",
 })(space, position, layout, typography);
 
-export const SignInGoogleButton = styled(StyledPrimaryButtonRaised)`
+export const SignIn = styled(StyledPrimaryButtonRaised)`
   ${compose(space, position, layout, typography)}
   background: var(--white);
   color: var(--black);
@@ -25,6 +25,7 @@ export const PrimaryButton = styled(StyledPrimaryButton)`
   ${compose(space, position, layout, typography)}
   background: var(--${(props) => props.background || "primary"});
   color: var(--white);
+  font-weight: var(--bold-weight)";
   border: 1px solid var(--white);
   .p-button-label {
     font-size: var(--small);

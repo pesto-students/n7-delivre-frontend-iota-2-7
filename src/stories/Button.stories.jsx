@@ -1,9 +1,8 @@
 import React from "react";
-// import { faGoogle as google} from '@fortawesome/free-brands-svg-icons';
-import { google } from "../components/shared/IconsAll";
+
 import {
   PrimaryButton,
-  SignInGoogleButton,
+  SignIn,
   SecondaryButton,
   PrimaryOutlinedButton,
   TextButton,
@@ -14,8 +13,8 @@ export default {
   title: "Components/Button",
 };
 
-export const SignIn = () => (
-  <SignInGoogleButton
+export const SignInButton = () => (
+  <SignIn
     m={[1, 1 / 2]}
     p={3}
     width={["100px", "200px", "300px"]}

@@ -1,6 +1,6 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { google, search, location, rupee } from "./IconsAll";
-import React from "react";
 
 export const GoogleIcon = ({ color }) => {
   return <FontAwesomeIcon icon={google} color={color} />;

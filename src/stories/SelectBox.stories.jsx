@@ -1,4 +1,4 @@
-import { BasicSelectBox } from "../components/shared/SelectBox";
+import { SelectBox } from "../components/shared/SelectBox";
 import React from "react";
 
 export default {
@@ -14,5 +14,5 @@ const options = [
 ];
 
 export const SelectInputBox = () => (
-  <BasicSelectBox value="1" options={options} onChange={(e) => {}} />
+  <SelectBox value="1" options={options} onChange={(e) => {}} />
 );

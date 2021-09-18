@@ -1,5 +1,5 @@
 import React from "react";
-import { BasicDropdown } from "../components/shared/Dropdown";
+import { Dropdown } from "../components/shared/Dropdown";
 
 export default {
   title: "Components/Dropdown",
@@ -13,8 +13,8 @@ const cities = [
   { name: "Paris", code: "PRS" },
 ];
 
-export const Dropdown = () => (
-  <BasicDropdown
+export const DropdownDefault = () => (
+  <Dropdown
     value=""
     options={cities}
     optionLabel="name"
@@ -26,7 +26,7 @@ export const Dropdown = () => (
 );
 
 export const DropdownSelected = () => (
-  <BasicDropdown
+  <Dropdown
     value={cities[0]}
     options={cities}
     optionLabel="name"

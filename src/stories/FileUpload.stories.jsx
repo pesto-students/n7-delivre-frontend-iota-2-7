@@ -1,8 +1,8 @@
 import React from "react";
-import { StyledFileUpload } from "../components/shared/FileUpload";
+import { FileUpload } from "../components/shared/FileUpload";
 
 export default {
   title: "Components/FileUpload",
 };
 
-export const UploadFile = () => <StyledFileUpload name="demo" />;
+export const UploadFile = () => <FileUpload name="demo" />;
