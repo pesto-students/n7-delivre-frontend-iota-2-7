@@ -1,36 +1,61 @@
-import React from 'react';
+import React from "react";
 
-import { Button } from './Button';
+import {
+  PrimaryButton,
+  SignIn,
+  SecondaryButton,
+  PrimaryOutlinedButton,
+  TextButton,
+} from "../components/shared/Button";
+import { GoogleIcon } from "../components/shared/Icon";
 
 export default {
-  title: 'Example/Button',
-  component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  title: "Components/Button",
 };
 
-const Template = (args) => <Button {...args} />;
+export const SignInButton = () => (
+  <SignIn
+    m={[1, 1 / 2]}
+    p={3}
+    width={["100px", "200px", "300px"]}
+    label="Sign In With Google"
+    icon={<GoogleIcon color="red" />}
+  />
+);
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: 'Button',
-};
+export const Primary = () => (
+  <PrimaryButton
+    m={[1, 1 / 2]}
+    p={3}
+    width={["200px", "300px"]}
+    label="Primary"
+  />
+);
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
+export const Secondary = () => (
+  <SecondaryButton
+    m={[1, 1 / 2]}
+    p={3}
+    width={["200px", "300px"]}
+    label="Secondary"
+  />
+);
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
+export const PrimaryOutlined = () => (
+  <PrimaryOutlinedButton
+    m={[1, 1 / 2]}
+    p={3}
+    width={["200px", "300px"]}
+    label="Primary Outlined"
+  />
+);
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
+export const Text = () => (
+  <TextButton
+    m={[1, 1 / 2]}
+    p={3}
+    width={["100px", "200px"]}
+    height={1}
+    label="Text"
+  />
+);
