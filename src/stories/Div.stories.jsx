@@ -1,5 +1,5 @@
 import React from "react";
-import { Div } from "../components/shared/Div";
+import { Div } from "../shared/components/Div";
 
 export default {
   title: "Components/Div",

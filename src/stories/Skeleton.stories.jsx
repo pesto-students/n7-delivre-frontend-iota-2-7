@@ -1,5 +1,5 @@
 import React from "react";
-import { Skeleton } from "../components/shared/Skeleton";
+import { Skeleton } from "../shared/components/Skeleton";
 
 export default {
   title: "Components/Skeleton",

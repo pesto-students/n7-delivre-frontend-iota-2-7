@@ -6,8 +6,8 @@ import {
   SecondaryButton,
   PrimaryOutlinedButton,
   TextButton,
-} from "../components/shared/Button";
-import { GoogleIcon } from "../components/shared/Icon";
+} from "../shared/components/Button";
+import { GoogleIcon } from "../shared/components/Icon";
 
 export default {
   title: "Components/Button",

@@ -1,5 +1,5 @@
 import React from "react";
-import { Label } from "../components/shared/Label";
+import { Label } from "../shared/components/Label";
 
 export default {
   title: "Components/Test",

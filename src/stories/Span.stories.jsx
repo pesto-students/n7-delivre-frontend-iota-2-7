@@ -1,5 +1,5 @@
 import React from "react";
-import { Span } from "../components/shared/Span";
+import { Span } from "../shared/components/Span";
 
 export default {
   title: "Components/Span",

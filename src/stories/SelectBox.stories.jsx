@@ -1,4 +1,4 @@
-import { SelectBox } from "../components/shared/SelectBox";
+import { SelectBox } from "../shared/components/SelectBox";
 import React from "react";
 
 export default {

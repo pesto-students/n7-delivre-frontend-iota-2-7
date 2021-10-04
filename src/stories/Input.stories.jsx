@@ -2,9 +2,9 @@ import {
   InputText,
   InvalidInput,
   IconInputText,
-} from "../components/shared/Input";
+} from "../shared/components/Input";
 import React from "react";
-import { SearchIcon } from "../components/shared/Icon";
+import { SearchIcon } from "../shared/components/Icon";
 
 export default {
   title: "Components/Input",
@@ -23,6 +23,6 @@ export const InvalidInputDefault = () => (
 export const IconInput = () => (
   <IconInputText>
     <SearchIcon />
-    <InputText placeholder="type anything.." />
+    <InputText placeholder="type anything.." border/>
   </IconInputText>
 );

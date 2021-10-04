@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../components/shared/Container";
+import { Container } from "../shared/components/Container";
 
 export default {
   title: "Components/Conatiner",

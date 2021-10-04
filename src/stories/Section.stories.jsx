@@ -1,5 +1,5 @@
 import React from "react";
-import { Section } from "../components/shared/Section";
+import { Section } from "../shared/components/Section";
 
 export default {
   title: "Components/Section",

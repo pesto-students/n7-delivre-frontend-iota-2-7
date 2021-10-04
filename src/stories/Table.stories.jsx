@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "../components/shared/Table";
+import { Table } from "../shared/components/Table";
 import { Column } from "primereact/column";
 
 export default {

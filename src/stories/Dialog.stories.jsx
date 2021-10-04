@@ -1,6 +1,6 @@
 import React from "react";
-import { Dialog } from "../components/shared/Dialog";
-import { PrimaryButton } from "../components/shared/Button";
+import { Dialog } from "../shared/components/Dialog";
+import { PrimaryButton } from "../shared/components/Button";
 
 export default {
   title: "Components/Dialog",
