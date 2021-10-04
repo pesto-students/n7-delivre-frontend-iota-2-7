@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox } from "../components/shared/Checkbox";
+import { Checkbox } from "../shared/components/Checkbox";
 
 export default {
   title: "Components/Checkbox",

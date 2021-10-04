@@ -4,7 +4,8 @@ import {
   SearchIcon,
   LocationIcon,
   RupeeIcon,
-} from "../components/shared/Icon";
+  TruckIcon,
+} from "../shared/components/Icon";
 
 export default {
   title: "Components/Icons",
@@ -14,3 +15,5 @@ export const Google = () => <GoogleIcon />;
 export const Search = () => <SearchIcon />;
 export const Location = () => <LocationIcon />;
 export const Rupee = () => <RupeeIcon />;
+export const Truck = () => <TruckIcon />;
+

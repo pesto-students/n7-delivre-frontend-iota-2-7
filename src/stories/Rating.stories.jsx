@@ -1,5 +1,5 @@
 import React from "react";
-import { Rating } from "../components/shared/Rating";
+import { Rating } from "../shared/components/Rating";
 
 export default {
   title: "Components/Rating",

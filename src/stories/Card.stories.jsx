@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "../components/shared/Card";
+import { Card } from "../shared/components/Card";
 
 export default {
   title: "Components/Card",

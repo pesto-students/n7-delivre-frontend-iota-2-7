@@ -3,11 +3,15 @@
   --black: #000;
   --black-600: rgb(0, 0, 0, 0.6);
   --red: #d62d42;
+  --yellow: #F4D525;
+  --blue: #2081AE;
   --primary: #1d848a;
   --secondary: #67d9c0;
   --tertiary: #edfaf7;
+  --shadow: rgba(103, 217, 192, 0.25);
   --blue-200: rgba(32, 129, 174, 0.25);
   --background: rgba(196, 196, 196, 0.22);
+  --border: #ced4da;
   --mini: 8px;
   --small: 18px;
   --medium: 24px;

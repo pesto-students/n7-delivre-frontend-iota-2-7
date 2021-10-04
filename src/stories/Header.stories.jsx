@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LoginHeader, LogoutHeader } from "../components/shared/Header";
+import { LoginHeader, LogoutHeader } from "../shared/components/Header";
 
 export default {
   title: "Components/Header",

@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar } from "../components/shared/Calendar";
+import { Calendar } from "../shared/components/Calendar";
 
 export default {
   title: "Components/Calendar",

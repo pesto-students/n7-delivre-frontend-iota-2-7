@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel } from "../components/shared/Carousel";
+import { Carousel } from "../shared/components/Carousel";
 
 export default {
   title: "Components/Carousel",

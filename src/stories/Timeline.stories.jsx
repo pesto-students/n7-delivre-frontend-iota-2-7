@@ -1,7 +1,7 @@
 import React from "react";
-import { TextButton } from "../components/shared/Button";
-import { Card } from "../components/shared/Card";
-import { Timeline } from "../components/shared/Timeline";
+import { TextButton } from "../shared/components/Button";
+import { Card } from "../shared/components/Card";
+import { Timeline } from "../shared/components/Timeline";
 
 export default {
   title: "Components/Timeline",
