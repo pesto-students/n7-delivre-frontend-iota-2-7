@@ -17,7 +17,6 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { createApi } from "../../../shared/api/crud";
 import ActionDialog from "./ActionDialog";
 import { useHistory } from "react-router-dom";
-import { SpeedDial } from '../../../shared/components/Speeddial';
 
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_CLIENT_KEY);
