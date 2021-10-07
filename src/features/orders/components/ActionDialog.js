@@ -1,4 +1,3 @@
-import { ErrorBoundary } from "@sentry/react";
 import React from "react";
 import { PrimaryButton } from "../../../shared/components/Button";
 import { Dialog } from "../../../shared/components/Dialog";
@@ -41,24 +40,36 @@ function ActionDialog({
 
   const bodyTemplate = (item) => {
     return (
-      <Div key={item.key} display="grid" gridTemplateColumns="1fr 1fr">
+      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
           <Label weight="bold" size="big">
             {item.label} :
           </Label>
         </Span>
-        <ErrorBoundary>
           <Span>
             <Label size="big">{item.value}</Label>
           </Span>
-        </ErrorBoundary>
+      </Div>
+    );
+  };
+  const weightTemplate = (item) => {
+    return (
+      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
+        <Span>
+          <Label weight="bold" size="big">
+            {item.label} :
+          </Label>
+        </Span>
+          <Span>
+            <Label size="big">upto {item.value} kg</Label>
+          </Span>
       </Div>
     );
   };
 
   const amountTemplate = (item) => {
     return showPaymentModal ? (
-      <Div key={item.key} display="grid" gridTemplateColumns="1fr 1fr">
+      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
           <Label weight="xbold" size="big">
             {item.label} :
@@ -69,7 +80,7 @@ function ActionDialog({
         </Span>
       </Div>
     ) : (
-      <Div key={item.key} display="grid" gridTemplateColumns="1fr 1fr">
+      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
           <Label weight="xbold" size="big">
             Rating :
@@ -97,7 +108,7 @@ function ActionDialog({
       template: bodyTemplate,
     },
     { lkey: 3,label: "Package", value: modalData.itemType, template: bodyTemplate },
-    { label: "Weight", value: modalData.weight, template: bodyTemplate },
+    { label: "Weight", value: modalData.weight, template: weightTemplate },
     {
       key: 4,
       label: "Total Amount",

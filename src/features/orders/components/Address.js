@@ -26,7 +26,7 @@ export const Address = ({ title, formik }) => {
           {title} City
         </Label>
 
-        <Dropdown
+        {/* <Dropdown
           id={formikTitle}
           name={formikTitle}
           value={formik.values[formikTitle]}
@@ -39,7 +39,7 @@ export const Address = ({ title, formik }) => {
           filterBy="name"
           placeholder="Select a City"
         />
-        <Error formik={formik} name={formikTitle} />
+        <Error formik={formik} name={formikTitle} /> */}
       </Field>
       <Field mb={3}>
         <Label htmlFor={mobile} size="medium" weight="bold">

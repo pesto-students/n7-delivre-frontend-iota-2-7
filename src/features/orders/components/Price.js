@@ -21,7 +21,9 @@ function Price({priceHandler, loading}) {
 
       <PrimaryButton
         loading={loading}
+        name="Submit Order"
         type='submit'
+        role='button'
         pt={3}
         pb={3}
         pr={5}
