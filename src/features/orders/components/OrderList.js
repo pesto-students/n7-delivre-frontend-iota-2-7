@@ -61,7 +61,6 @@ const OrderList = () => {
     async function createPaymentIntent(item){
       try{
         const response = await createApi(item, 'create-payment-intent');
-        console.log("Client Response", response);
         if(response) setClientSecret(response.clientSecret);
       }
       catch(err){
@@ -167,6 +166,17 @@ const OrderList = () => {
       </React.Fragment>
     );
   };
+  const weightTemplate = (data, props) => {
+    return loading ? (
+      <Skeleton key={props.field} />
+    ) : (
+      <React.Fragment>
+        <span className="p-column-title">{props.header}</span>
+        upto {data[props.field]} kg
+      </React.Fragment>
+    );
+  };
+
   const cityTemplate = (data, props) => {
     return loading ? (
       <Skeleton key={props.field} />
@@ -196,7 +206,6 @@ const OrderList = () => {
   };
 
   const actionHandler = (data) => {
-    console.log("Action CLicked");
     setShowModal(true);
     setModalData({ ...data });
   };
@@ -205,12 +214,11 @@ const OrderList = () => {
     setModalData({ ...data });
   };
 
-  const trackHandler = () => {
-    history.push('/track-orders');
+  const trackHandler = (data) => {
+    history.push('/track-orders/'+ data.id);
   }
 
   const statusHandler = (data) => {
-    console.log(data);
     switch (data.status) {
       case "Assigned":
         return;
@@ -283,15 +291,15 @@ const OrderList = () => {
       body: bodyTemplate,
       width: 30,
     },
-    { field: "pickup", header: "Pickup", body: cityTemplate, width: 40 },
+    { field: "pickup", header: "Pickup", body: cityTemplate, width: 30 },
     {
       field: "delivery",
       header: "Delivery",
       body: cityTemplate,
-      width: 40,
+      width: 30,
     },
     { field: "itemType", header: "Item", body: bodyTemplate, width: 20 },
-    { field: "weight", header: "Weight", body: bodyTemplate, width: 20 },
+    { field: "weight", header: "Weight", body: weightTemplate, width: 30 },
     { field: "price", header: "Price", body: bodyTemplate, width: 20 },
     { field: "status", header: "Status", body: statusBodyTemplate, width: 30 },
   ];

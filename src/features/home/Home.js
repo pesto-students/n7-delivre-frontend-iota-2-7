@@ -15,6 +15,7 @@ import NotFound from "../404/NotFound";
 import VolunteerList from "../volunteer/components/VolunteerList";
 import GuardedRoute from "../route-guard/GuardedRoute";
 import TrackOrders from "../track/TrackOrders";
+import { createApi } from "../../shared/api/crud";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,28 +32,60 @@ const Home = () => {
       dispatch(login(user));
       history.push("/order-list");
     } else history.push("/");
-  },[dispatch, history]);
- 
+  }, [dispatch, history]);
+
+  const handleGuestLogin = async () => {
+    const user = {
+      id: "guest140994",
+      name: "John Doe",
+      email: "john.doe@gmail.com",
+    };
+    const response = await createApi(user, "login");
+    console.log("User", response);
+    if (response) {
+      dispatch(login(user));
+      history.push("/order-list");
+    } else history.push("/");
+  };
+
   return (
     <>
       <Header
         isLoggedIn={isLoggedIn}
         handleOnClick={handleSignIn}
+        handleGuestLogin={handleGuestLogin}
         userName={user.name}
       />
       <Switch>
-        <GuardedRoute path="/order" component={CreateOrder} auth={isLoggedIn}/>
-        <GuardedRoute path="/order-list" component={OrderList} auth={isLoggedIn}/>
-        <GuardedRoute path="/travel" component={TravelPlan} auth={isLoggedIn}/>
-        <GuardedRoute path="/travel-list" component={TravelList} auth={isLoggedIn}/>
-        <GuardedRoute path="/delivery-list" component={DeliveryList} auth={isLoggedIn}/>
-        <GuardedRoute path='/volunteer-list' component={VolunteerList} auth={isLoggedIn} />
-        <GuardedRoute path='/track-orders' component={TrackOrders} auth={isLoggedIn}/>
-        <Route
-          path="/"
-          component={() => <Intro />}
+        <GuardedRoute path="/order" component={CreateOrder} auth={isLoggedIn} />
+        <GuardedRoute
+          path="/order-list"
+          component={OrderList}
+          auth={isLoggedIn}
         />
-        <Route default component={NotFound}/>
+        <GuardedRoute path="/travel" component={TravelPlan} auth={isLoggedIn} />
+        <GuardedRoute
+          path="/travel-list"
+          component={TravelList}
+          auth={isLoggedIn}
+        />
+        <GuardedRoute
+          path="/delivery-list"
+          component={DeliveryList}
+          auth={isLoggedIn}
+        />
+        <GuardedRoute
+          path="/volunteer-list"
+          component={VolunteerList}
+          auth={isLoggedIn}
+        />
+        <GuardedRoute
+          path="/track-orders/:orderId"
+          component={TrackOrders}
+          auth={isLoggedIn}
+        />
+        <Route path="/" component={() => <Intro />} />
+        <Route default component={NotFound} />
       </Switch>
       <Footer position="relative" bottom="0" mt={40} />
     </>

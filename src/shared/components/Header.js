@@ -16,26 +16,34 @@ const CommonHeader = ({ children }) => (
     display="flex"
     alignItems="center"
     alignContent="center"
-    justifyContent="space-between"
+    justifyContent="center"
     position="relative"
   >
     {children}
   </StyledHeader>
 );
 
-export const Header = ({ isLoggedIn, handleOnClick, userName }) =>
+export const Header = ({
+  isLoggedIn,
+  handleOnClick,
+  handleGuestLogin,
+  userName,
+}) =>
   isLoggedIn ? (
     <LoginHeader userName={userName} />
   ) : (
-    <LogoutHeader handleOnClick={handleOnClick} />
+    <LogoutHeader
+      handleOnClick={handleOnClick}
+      handleGuestLogin={handleGuestLogin}
+    />
   );
 
 const LoginHeader = ({ userName }) => (
   <CommonHeader>
     <Link to={"/"}>
-      <Logo logo={logo} />
+      <Logo logo={logo} pt={15} />
     </Link>
-    <Span display='flex' alignItems='center' height='10vh'>
+    <Span mt={10} display='flex' alignItems='center' height='10vh'>
       <Link to={"/order"}>
         <SecondaryButton
           mr={10}
@@ -70,17 +78,27 @@ const LoginHeader = ({ userName }) => (
   </CommonHeader>
 );
 
-const LogoutHeader = ({ handleOnClick }) => (
+const LogoutHeader = ({ handleOnClick, handleGuestLogin }) => (
   <CommonHeader>
     <Logo logo={logo} />
-    <SignIn
-      m={[1, 2, 3, 4]}
-      p={3}
-      width={["200px", "300px"]}
-      radius="15"
-      label="Sign In With Google"
-      icon={<GoogleIcon color="red" />}
-      onClick={handleOnClick}
-    />
+    <Span display="flex" alignItems="center" height="10vh">
+      <SignIn
+        m={[1, 2, 3, 4]}
+        p={3}
+        width={["200px", "300px"]}
+        radius="15"
+        label="Sign In With Google"
+        icon={<GoogleIcon color="red" />}
+        onClick={handleOnClick}
+      />
+      <PrimaryOutlinedButton
+        p={[2, 3]}
+        fontSize={[10, 12]}
+        width={[1, "auto"]}
+        radius="15"
+        label="Guest User"
+        onClick={handleGuestLogin}
+      />
+    </Span>
   </CommonHeader>
 );
