@@ -4,7 +4,7 @@ import { Container } from "../../../shared/components/Container";
 import { Heading } from "../../../shared/components/Heading";
 import { Section } from "../../../shared/components/Section";
 import { Skeleton } from "../../../shared/components/Skeleton";
-// import { NavBar } from "../../../shared/components/Navbar";
+import { NavBar } from "../../../shared/components/Navbar";
 import { Table } from "../../../shared/components/Table";
 import { Column } from "primereact/column";
 import { TextButton } from "../../../shared/components/Button";
@@ -339,10 +339,10 @@ const OrderList = () => {
 
   return (
     <Section>
-      {/* <NavBar
+      <NavBar
         value={globalFilter}
         onChange={(e) => setGlobalFilter(e.target.value)}
-      /> */}
+      />
 
       <Container>
 
