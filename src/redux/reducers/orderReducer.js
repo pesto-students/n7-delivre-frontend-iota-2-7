@@ -14,7 +14,7 @@ export const fetchOrders = createAsyncThunk(
   "order/fetchOrders",
   async (payload, thunkAPI) => {
     const response = await fetchApi(payload, "orders");
-    console.log("Response from API", response);
+    // console.log("Response from API", response);
     const orders = {
       all: response,
       active: response.filter(

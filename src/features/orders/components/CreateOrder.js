@@ -70,7 +70,8 @@ const calculatePrice = ({
   return basePrice;
 };
 
-const submitHandler = async (values, dispatch, history) => {
+export const submitHandler = async (values, dispatch, history) => {
+  console.log("Submit called");
   values.price = calculatePrice(values);
 
   console.log(JSON.stringify(values, null, 2));
@@ -97,6 +98,8 @@ export const CreateOrder = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  
+  
   const onBlurHandler = () => {
     const itemValue = formik.values.itemValue;
     setItemValuePrice(Math.floor(Number(percentage(0.85, itemValue))));
@@ -122,23 +125,23 @@ export const CreateOrder = () => {
 
   const validationSchema = () => {
     return Yup.object({
-      pickup: Yup.object().nullable(true).required("Pickup City is required"),
+      // pickup: Yup.object().nullable(true).required("Pickup City is required"),
       pickupMobile: Yup.string()
         .min(10, "Must be 10 digits")
         .max(10, "Must be 10 digits")
         .required("Mobile number is required"),
       pickupAddress: Yup.string().required("Complete Address is required"),
-      delivery: Yup.object().nullable(true).required("Delivery City is required"),
+      // delivery: Yup.object().nullable(true).required("Delivery City is required"),
       deliveryMobile: Yup.string()
         .max(10, "Must be 10 digits")
         .min(10, "Must be 10 digits")
         .required("Mobile number is required"),
       deliveryAddress: Yup.string().required("Complete Address is required"),
-      weight: Yup.string().nullable(true).required("Weight is required"),
+      // weight: Yup.string().nullable(true).required("Weight is required"),
       itemType: Yup.string().nullable(true).required("Item type is required"),
       itemValue: Yup.string().notRequired(),
       deliveryBag: Yup.string().notRequired(),
-      deliveryPartner: Yup.string().nullable(true).required("Delivery Partner is required"),
+      // deliveryPartner: Yup.string().nullable(true).required("Delivery Partner is required"),
     });
   };
 
@@ -164,13 +167,13 @@ export const CreateOrder = () => {
         <DeliverySchedule />
 
         <Div width={[1, "auto"]} shadow mt={20}>
-          <Weight
+          {/* <Weight
             id="weight"
             name="weight"
             value={formik.values.weight}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-          />
+          /> */}
           <Error formik={formik} name="weight" />
         </Div>
 
@@ -202,7 +205,7 @@ export const CreateOrder = () => {
           </Field>
 
           {/* Delivery Partner Option */}
-          <Field p={3} mt={20}>
+          {/* <Field p={3} mt={20}>
             <Label weight="bold">Delivery Partner</Label>
             <SelectBox
               value={formik.values.deliveryPartner}
@@ -215,7 +218,7 @@ export const CreateOrder = () => {
               large
             />
             <Error formik={formik} name="deliveryPartner" />
-          </Field>
+          </Field> */}
 
           {/* Price component */}
           <Price
