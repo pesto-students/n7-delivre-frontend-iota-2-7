@@ -14,11 +14,11 @@ const items = [{ label: "Delivery" }, { label: "Be Volunteer" }];
 export default React.memo(function Intro({handleOnClick}) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <Div>
+    <>
       <Div display="flex" justifyContent="space-around">
         <Image w={[1, "auto"]} src="https://firebasestorage.googleapis.com/v0/b/delivre-6843b.appspot.com/o/banner.svg?alt=media&token=14f66445-aa1a-48a2-9249-818e190b9ced" alt="Banner" />
         <Div diplay="flex" flexDirection="column">
-          <Heading size="big"> Fastest Delivery Service </Heading>
+          <Heading textAlign={['center', 'left']} pb={4} size="big"> Fastest Delivery Service </Heading>
           <Label size="small">Low-priced same day delivery service!</Label>
           <Div shadow display="grid" mt={20}>
             <TabMenu
@@ -50,7 +50,7 @@ export default React.memo(function Intro({handleOnClick}) {
           Why choose Delivre?
         </Heading>
         <Div display="grid" gridTemplateColumns="1fr 1fr" mt={10}>
-          <Image src="https://firebasestorage.googleapis.com/v0/b/delivre-6843b.appspot.com/o/d1.svg?alt=media&token=d08eca1a-d04f-4163-ba0f-37148609f0fc" alt="" m="auto" />
+          <Image width={[1, 'auto']} src="https://firebasestorage.googleapis.com/v0/b/delivre-6843b.appspot.com/o/d1.svg?alt=media&token=d08eca1a-d04f-4163-ba0f-37148609f0fc" alt="" m="auto" />
           <Span lineHeight='3' m='auto'>
             <ul>
               <li>
@@ -107,11 +107,11 @@ export default React.memo(function Intro({handleOnClick}) {
               </li>
             </ul>
           </Span>
-          <Image src="https://firebasestorage.googleapis.com/v0/b/delivre-6843b.appspot.com/o/d2.svg?alt=media&token=80e91e14-63c4-4b7c-80a8-06a18476c33f" alt="" m="auto" />
+          <Image width={[1, 'auto']} src="https://firebasestorage.googleapis.com/v0/b/delivre-6843b.appspot.com/o/d2.svg?alt=media&token=80e91e14-63c4-4b7c-80a8-06a18476c33f" alt="" m="auto" />
 
         </Div>
         <Div display="grid" gridTemplateColumns="1fr 1fr" mt={10}>
-          <Image src="https://firebasestorage.googleapis.com/v0/b/delivre-6843b.appspot.com/o/d3.svg?alt=media&token=bba3b476-2aa0-4153-807d-5d754cdfa326" alt="" m="auto" />
+          <Image width={[1, 'auto']} src="https://firebasestorage.googleapis.com/v0/b/delivre-6843b.appspot.com/o/d3.svg?alt=media&token=bba3b476-2aa0-4153-807d-5d754cdfa326" alt="" m="auto" />
           <Span lineHeight='3' m='auto'>
             <ul>
               <li>
@@ -141,7 +141,7 @@ export default React.memo(function Intro({handleOnClick}) {
           </Span>
         </Div>
       </Div>
-    </Div>
+    </>
   );
 })
 

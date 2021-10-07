@@ -167,13 +167,13 @@ export const CreateOrder = () => {
         <DeliverySchedule />
 
         <Div width={[1, "auto"]} shadow mt={20}>
-          {/* <Weight
+          <Weight
             id="weight"
             name="weight"
             value={formik.values.weight}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-          /> */}
+          />
           <Error formik={formik} name="weight" />
         </Div>
 
@@ -205,7 +205,7 @@ export const CreateOrder = () => {
           </Field>
 
           {/* Delivery Partner Option */}
-          {/* <Field p={3} mt={20}>
+          <Field p={3} mt={20}>
             <Label weight="bold">Delivery Partner</Label>
             <SelectBox
               value={formik.values.deliveryPartner}
@@ -218,7 +218,7 @@ export const CreateOrder = () => {
               large
             />
             <Error formik={formik} name="deliveryPartner" />
-          </Field> */}
+          </Field>
 
           {/* Price component */}
           <Price

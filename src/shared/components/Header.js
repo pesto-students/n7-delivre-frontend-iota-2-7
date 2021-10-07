@@ -16,7 +16,7 @@ const CommonHeader = ({ children }) => (
     display="flex"
     alignItems="center"
     alignContent="center"
-    justifyContent="space-between"
+    justifyContent="center"
     position="relative"
   >
     {children}
@@ -41,9 +41,9 @@ export const Header = ({
 const LoginHeader = ({ userName }) => (
   <CommonHeader>
     <Link to={"/"}>
-      <Logo logo={logo} />
+      <Logo logo={logo} pt={15} />
     </Link>
-    <Span display="flex" alignItems="center" height="10vh">
+    <Span mt={10} display='flex' alignItems='center' height='10vh'>
       <Link to={"/order"}>
         <SecondaryButton
           mr={10}
