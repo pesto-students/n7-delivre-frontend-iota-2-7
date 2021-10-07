@@ -43,11 +43,7 @@ const LoginHeader = ({ userName }) => (
     <Link to={"/"}>
       <Logo logo={logo} pt={15} />
     </Link>
-<<<<<<< Updated upstream
-    <Span display="flex" alignItems="center" height="10vh">
-=======
     <Span mt={10} display='flex' alignItems='center' height='10vh'>
->>>>>>> Stashed changes
       <Link to={"/order"}>
         <SecondaryButton
           mr={10}

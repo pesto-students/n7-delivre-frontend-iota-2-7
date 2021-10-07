@@ -7,13 +7,7 @@ import { Label } from "../../../shared/components/Label";
 import { InputTextArea } from "../../../shared/components/Textarea";
 import {CITIES} from '../../../shared/constant';
 
-// const cities = [
-//   { name: "New York", code: "NY" },
-//   { name: "Rome", code: "RM" },
-//   { name: "London", code: "LDN" },
-//   { name: "Istanbul", code: "IST" },
-//   { name: "Paris", code: "PRS" },
-// ];
+
 
 export const Address = ({ title, formik }) => {
   const formikTitle = title.toLowerCase();
@@ -26,7 +20,7 @@ export const Address = ({ title, formik }) => {
           {title} City
         </Label>
 
-        {/* <Dropdown
+        <Dropdown
           id={formikTitle}
           name={formikTitle}
           value={formik.values[formikTitle]}
@@ -39,7 +33,7 @@ export const Address = ({ title, formik }) => {
           filterBy="name"
           placeholder="Select a City"
         />
-        <Error formik={formik} name={formikTitle} /> */}
+        <Error formik={formik} name={formikTitle} />
       </Field>
       <Field mb={3}>
         <Label htmlFor={mobile} size="medium" weight="bold">
