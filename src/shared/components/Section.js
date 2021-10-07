@@ -22,6 +22,7 @@ export const Section = styled.section`
     border,
     flexbox
   )}
+  min-height:100vh;
   box-shadow: ${({ shadow }) =>
     shadow
       ? "-4px -4px 12px var(--shadow), 4px 4px 12px var(--shadow)"

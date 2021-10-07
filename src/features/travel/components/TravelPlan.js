@@ -29,7 +29,9 @@ export const TravelPlan = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.login.user);
-  const [file, setFile] = useState({})
+  const loading = useSelector((state) => state.travel.loading);
+
+  const [file, setFile] = useState({});
 
   const initialValues = {
     user: user.id,
@@ -56,23 +58,21 @@ export const TravelPlan = (props) => {
     });
   };
 
-
   const submitHandler = async (values, dispatch, history) => {
-  console.log("Submit Clicked");
-  values.idProof = file;
-  const payload = JSON.stringify(values, null, 2);
+    console.log("Submit Clicked");
+    values.idProof = file;
+    const payload = JSON.stringify(values, null, 2);
 
-  dispatch(createTravel(JSON.parse(payload)))
-    .unwrap()
-    .then((originalPromiseResult) => {
-      console.info(originalPromiseResult);
-      history.push("/travel-list");
-    })
-    .catch((rejectedValueOrSerializedError) => {
-      // handle error here
-      console.info(rejectedValueOrSerializedError);
-    });
-
+    dispatch(createTravel(JSON.parse(payload)))
+      .unwrap()
+      .then((originalPromiseResult) => {
+        console.info(originalPromiseResult);
+        history.push("/travel-list");
+      })
+      .catch((rejectedValueOrSerializedError) => {
+        // handle error here
+        console.info(rejectedValueOrSerializedError);
+      });
   };
 
   const formik = useFormik({
@@ -87,23 +87,14 @@ export const TravelPlan = (props) => {
       <Container m="auto">
         {/* title */}
 
-        <Span>
+        <Div>
           <Heading size="big" weight="hairline" mt={40} mb={40}>
             Travel Plan
           </Heading>
-        </Span>
+        </Div>
         <Div mt={20} borderRadius={5} shadow>
           <Form>
-            <Div
-              mt={20}
-              borderRadius={5}
-              shadow
-              display="flex"
-              justifyContent="flex-start"
-              gridColumnGap={30}
-              alignContent="center"
-              alignItems="center"
-            >
+            <Div>
               <Span display="flex" flexDirection="column" pt={10} pb={10}>
                 <Label>From</Label>
                 <Dropdown
@@ -189,7 +180,7 @@ export const TravelPlan = (props) => {
               <FileUpload
                 id="idProof"
                 name="idProof"
-                uploadHandler={(e)=>setFile(e.files[0])}
+                uploadHandler={(e) => setFile(e.files[0])}
                 // onUpload={onUpload}
                 customUpload
                 // url="https://primefaces.org/primereact/showcase/upload.php"
@@ -220,6 +211,7 @@ export const TravelPlan = (props) => {
             </Div>
             <PrimaryButton
               type="submit"
+              loading={loading}
               pt={3}
               pb={3}
               pr={5}

@@ -198,8 +198,9 @@ export const CreateOrder = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               checked={formik.values.deliveryBag}
+              mr={2}
             ></Checkbox>
-            <Label htmlFor="deliveryBag" pl={2}>
+            <Label htmlFor="deliveryBag">
               Prefer Courier with Delivery Bag
             </Label>
           </Field>

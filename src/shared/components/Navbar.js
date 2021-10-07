@@ -53,15 +53,15 @@ export const NavBar = ({ value, onChange }) => {
           <InputText
             placeholder="Type order number or any other text"
             type="text"
-            width={[1, 600]}
-            height={60}
+            width={[265, 800]}
+            height={50}
             value={value}
             onChange={onChange}
           />
         </IconInputText>
       }
       width="auto"
-      height={100}
+      
     />
   );
 };

@@ -121,7 +121,7 @@ export const TravelList = () => {
               width="auto"
               value={getValue()}
               paginator
-              rows={10}
+              rows={5}
               rowHover
               resizableColumns
               columnResizeMode="expand"

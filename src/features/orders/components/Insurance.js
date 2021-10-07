@@ -33,6 +33,7 @@ function Insurance({formik, itemValuePrice, onBlur}) {
             size="medium"
             weight="hairline"
             color="var(--black-600)"
+            mt={2}
           >
             ₹ {itemValuePrice} : Additional charges for securing parcel
           </Label>

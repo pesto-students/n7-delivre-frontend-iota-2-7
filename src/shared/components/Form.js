@@ -14,7 +14,6 @@ export const Form = styled.form.attrs({
   className: "p-formgrid p-fluid",
 })`
   ${compose(space, position, layout, typography, flexbox, grid, color)}
-  padding:20px;
   box-shadow: ${({ shadow }) =>
     shadow
       ? "-4px -4px 12px var(--shadow), 4px 4px 12px var(--shadow)"
