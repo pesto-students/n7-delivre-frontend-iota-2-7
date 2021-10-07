@@ -24,14 +24,10 @@ export const Div = styled.div`
     flexbox,
     grid
   )}
-  padding:20px;
+  padding:10px;
   box-shadow: ${({ shadow }) =>
     shadow
       ? "-4px -4px 12px var(--shadow), 4px 4px 12px var(--shadow)"
       : "none"};
-  @media (max-width: 40em) {
-    display: flex;
-    flex-direction: column;
-    align-items: normal;
-  }
+  
 `;

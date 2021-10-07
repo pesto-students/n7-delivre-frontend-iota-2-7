@@ -1,5 +1,8 @@
 @import url(./variables.css);
 
+li{
+  list-style-type: none;
+}
 .delivre-header {
   width: 100%;
   height: 140px;
