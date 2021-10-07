@@ -63,6 +63,7 @@ export const SecondaryButton = styled(StyledPrimaryButtonRaised)`
     border: 1px solid var(--secondary);
   }
   @media (max-width:40em){
+    font-size:8px;
     border: none;
     border-radius: 0px;
   }
@@ -83,6 +84,7 @@ export const PrimaryOutlinedButton = styled(StyledPrimaryButtonRaised)`
     border: 1px solid var(--black-600);
   }
   @media (max-width:40em){
+    font-size: 8px;
     border: none;
     border-radius: 0px;
   }

@@ -15,7 +15,7 @@ function Price({priceHandler, loading}) {
       flexDirection="column"
       alignItems="center"
     >
-      <Label size="big" weight="medium">
+      <Label size="big" weight="medium" mt={4} mb={4}>
         Total: from <RupeeIcon /> {priceHandler()}
       </Label>
 

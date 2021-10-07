@@ -360,7 +360,7 @@ const OrderList = () => {
               width="auto"
               value={getTableValue()}
               paginator
-              rows={10}
+              rows={5}
               rowHover
               resizableColumns
               columnResizeMode="expand"
