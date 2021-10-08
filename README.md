@@ -1,9 +1,9 @@
 # DELIVRE
 DELIVRE is an intercity delivery service platform where a customer and volunteer can come together to carry out an item delivery.
 
-# Getting Started with Delivre App
+## Getting Started with Delivre App
 
-Go to this url for live access[Delivre App](https://delivre-6843b.web.app).
+Go to this url for live access [Delivre App](https://delivre-6843b.web.app).
 
 ## Tech Stack 
 
@@ -25,7 +25,8 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### Storybook
 
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
+In the project directory, you can run:
+`npm run storybook`
+Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
