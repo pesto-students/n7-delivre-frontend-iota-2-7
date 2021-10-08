@@ -33,15 +33,15 @@ export const Footer = () => (
     <Span mt={3}>
       <Span mr={3}>
         {" "}
-        <FacebookIcon />
+        <FacebookIcon size="2x"/>
       </Span>
       <Span mr={3}>
         {" "}
-        <InstaIcon />
+        <InstaIcon size="2x"/>
       </Span>
       <Span mr={3}>
         {" "}
-        <YoutubeIcon />
+        <YoutubeIcon size="2x"/>
       </Span>
     </Span>
     <Div textAlign='center'>

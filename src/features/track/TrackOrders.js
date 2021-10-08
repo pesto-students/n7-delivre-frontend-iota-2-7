@@ -19,7 +19,7 @@ const events = ["Ordered", "Processing", "Shipped", "Delivered"];
 const customizedMarker = () => {
   return (
     <Span>
-      <CircleIcon color="var(--secondary)" />
+      <CircleIcon color="var(--secondary)" size="3x"/>
     </Span>
   );
 };
@@ -38,7 +38,7 @@ function TrackOrders() {
     dispatch(fetchOrders(user.id));
   }, [dispatch, user]);
 
-  useEffect(()=>{})
+  useEffect(() => {});
 
   const orderHistory = () => {
     const trackingOrders = orders.filter((order) => order.status === "Track");
@@ -49,16 +49,13 @@ function TrackOrders() {
       <NavBar />
 
       <Container width={["1", "auto"]}>
+        <PrimaryOutlinedButton mt={4} label="Order History" onClick={orderHistory} />
         {ordersToTrack.map((order) => (
           <React.Fragment>
             <Div>
               <Heading size="big" weight="hairline" mt={40} mb={40}>
                 Order #{order.id} - <RupeeIcon /> {order.price}
               </Heading>
-              <PrimaryOutlinedButton
-                label="Order History"
-                onClick={orderHistory}
-              />
             </Div>
             <Div>
               <Heading size="medium" weight="bold" mt={40} mb={40}>
@@ -66,8 +63,9 @@ function TrackOrders() {
               </Heading>
               <Timeline
                 layout="horizontal"
+                opposite={<span>&nbsp;</span>}
                 value={events}
-                align="top"
+                align="alternate"
                 marker={customizedMarker}
                 content={(item) => item}
               />
@@ -76,10 +74,10 @@ function TrackOrders() {
               mb={20}
               shadow="true"
               display="grid"
-              gridTemplateColumns="1fr 1fr 1fr"
+              gridTemplateColumns="1fr 2fr"
             >
               <Div display="grid">
-                <Heading size="medium" weight="hairline" mt={40} mb={40}>
+                <Heading size="medium" weight="hairline" mb={40}>
                   Courier
                 </Heading>
                 <Label weight="bold"> Volunteer</Label>
@@ -91,26 +89,26 @@ function TrackOrders() {
                 <Label>{order.pickupMobile}</Label>
               </Div>
               <Div display="grid">
-                <Heading size="medium" weight="hairline" mt={40} mb={40}>
+                <Heading size="medium" weight="hairline" mb={40}>
                   Order Details
                 </Heading>
-                <Span display="grid" gridTemplateColumns="1fr 1fr">
-                  <Span display="flex" flexDirection="column">
+                <Span display="flex">
+                  <Div display="flex" flexDirection="column">
                     <Label weight="bold">Declared value</Label>
                     <Label>{order.itemValue}</Label>
                     <Label weight="bold" mt={2}>
                       Payment type
                     </Label>
                     <Label>Card</Label>
-                  </Span>
-                  <Span display="flex" flexDirection="column">
+                  </Div>
+                  <Div display="flex" flexDirection="column">
                     <Label weight="bold">Content</Label>
                     <Label>{order.itemType}</Label>
                     <Label weight="bold" mt={2}>
                       Weight
                     </Label>
                     <Label>upto {order.weight} kg</Label>
-                  </Span>
+                  </Div>
                 </Span>
               </Div>
             </Div>

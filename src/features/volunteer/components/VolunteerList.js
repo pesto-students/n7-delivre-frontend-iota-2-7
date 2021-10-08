@@ -144,7 +144,7 @@ function VolunteerList() {
               columnResizeMode="expand"
               sortMode="multiple"
               globalFilter={globalFilter}
-              emptyMessage="No orders found."
+              emptyMessage="You have not volunteered yet."
             >
               {dynamicColumns}
             </Table>

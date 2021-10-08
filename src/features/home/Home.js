@@ -37,7 +37,7 @@ const Home = () => {
   const handleGuestLogin = async () => {
     const user = {
       id: "guest140994",
-      name: "John Doe",
+      name: "Charlotte Andrea",
       email: "john.doe@gmail.com",
     };
     const response = await createApi(user, "login");

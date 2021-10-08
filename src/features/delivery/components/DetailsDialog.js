@@ -19,13 +19,13 @@ function DetailsDialog({ loading, modalData, showModal, hideHandler, interestHan
     return (
       <Div display='grid' gridTemplateColumns='1fr 1fr'>
         <Span>
-          <Label weight="bold" size="big">
+          <Label weight="bold">
             {item.label} 
           </Label>
         </Span>
         <ErrorBoundary>
           <Span>
-            <Label size='big'>{item.value}</Label>
+            <Label>{item.value}</Label>
           </Span>
         </ErrorBoundary>
       </Div>
@@ -33,11 +33,11 @@ function DetailsDialog({ loading, modalData, showModal, hideHandler, interestHan
   };
 
   const imageTemplate = (item) => {
-    return (<Carousel
+    return (<Div><Carousel
       value={item.value}
       numVisible={1}
       itemTemplate={productTemplate}
-    />);
+    /></Div>);
   };
 
   const dialogItems = [
@@ -65,8 +65,7 @@ function DetailsDialog({ loading, modalData, showModal, hideHandler, interestHan
     <Image
       src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFja2FnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
       alt={product.name}
-      width={400}
-      height={200}
+      width={1}
       className="product-image"
     />
   );

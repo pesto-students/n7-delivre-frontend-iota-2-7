@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { google, search, location, rupee, exchange, truck, hands, circle, fb ,insta,yt} from "./IconsAll";
 
 export const GoogleIcon = ({ color }) => {
-  return <FontAwesomeIcon icon={google} color={color} />;
+  return <FontAwesomeIcon icon={google} color={color}/>;
 };
 export const SearchIcon = ({ color }) => {
   return <FontAwesomeIcon icon={search} color={color} />;
@@ -27,15 +27,15 @@ export const HandsIcon = ({ color }) => {
   return <FontAwesomeIcon icon={hands} color={color} />;
 };
 
-export const CircleIcon = ({ color }) => {
-  return <FontAwesomeIcon icon={circle} color={color} size="5x"/>;
+export const CircleIcon = ({ color, size }) => {
+  return <FontAwesomeIcon icon={circle} color={color} size={size}/>;
 };
-export const FacebookIcon = ({ color }) => {
-  return <FontAwesomeIcon icon={fb} color={color} size="2x"/>;
+export const FacebookIcon = ({ color ,size}) => {
+  return <FontAwesomeIcon icon={fb} color={color} size={size}/>;
 };
-export const InstaIcon = ({ color }) => {
-  return <FontAwesomeIcon icon={insta} color={color} size="2x"/>;
+export const InstaIcon = ({ color,size }) => {
+  return <FontAwesomeIcon icon={insta} color={color} size={size}/>;
 };
-export const YoutubeIcon = ({ color }) => {
-  return <FontAwesomeIcon icon={yt} color={color} size="2x"/>;
+export const YoutubeIcon = ({ color,size }) => {
+  return <FontAwesomeIcon icon={yt} color={color} size={size}/>;
 };

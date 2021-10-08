@@ -210,7 +210,7 @@ export const DeliveryList = () => {
               columnResizeMode="expand"
               sortMode="multiple"
               globalFilter={globalFilter}
-              emptyMessage="No orders found."
+              emptyMessage="No Deliveries yet."
             >
               {dynamicColumns}
             </Table>

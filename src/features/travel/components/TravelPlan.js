@@ -218,7 +218,7 @@ export const TravelPlan = (props) => {
               pl={5}
               width="auto"
               radius="5"
-              label="Submit Order"
+              label="Submit Travel Plan"
               onClick={formik.handleSubmit}
             />
           </Form>

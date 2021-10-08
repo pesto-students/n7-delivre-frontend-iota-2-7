@@ -125,23 +125,23 @@ export const CreateOrder = () => {
 
   const validationSchema = () => {
     return Yup.object({
-      // pickup: Yup.object().nullable(true).required("Pickup City is required"),
+      pickup: Yup.object().nullable(true).required("Pickup City is required"),
       pickupMobile: Yup.string()
         .min(10, "Must be 10 digits")
         .max(10, "Must be 10 digits")
         .required("Mobile number is required"),
       pickupAddress: Yup.string().required("Complete Address is required"),
-      // delivery: Yup.object().nullable(true).required("Delivery City is required"),
+      delivery: Yup.object().nullable(true).required("Delivery City is required"),
       deliveryMobile: Yup.string()
         .max(10, "Must be 10 digits")
         .min(10, "Must be 10 digits")
         .required("Mobile number is required"),
       deliveryAddress: Yup.string().required("Complete Address is required"),
-      // weight: Yup.string().nullable(true).required("Weight is required"),
+      weight: Yup.string().nullable(true).required("Weight is required"),
       itemType: Yup.string().nullable(true).required("Item type is required"),
       itemValue: Yup.string().notRequired(),
       deliveryBag: Yup.string().notRequired(),
-      // deliveryPartner: Yup.string().nullable(true).required("Delivery Partner is required"),
+      deliveryPartner: Yup.string().nullable(true).required("Delivery Partner is required"),
     });
   };
 

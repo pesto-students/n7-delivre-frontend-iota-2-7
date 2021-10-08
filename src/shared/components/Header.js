@@ -43,36 +43,31 @@ const LoginHeader = ({ userName }) => (
     <Link to={"/"}>
       <Logo logo={logo} pt={26} />
     </Link>
-    <Span mt={16} mr={[0,4]} display='flex' alignItems='center'>
+    <Span mt={16} mr={[0, 4]} display="flex" alignItems="center">
       <Link to={"/order"}>
-        <SecondaryButton
-          mr={10}
-          p={[2, 3]}
-          fontSize={[10, 12]}
-          width={[1, "auto"]}
-          radius="15"
-          label="Order Delivery"
-        />
+        <SecondaryButton mr={10} p={[2, 3]} width={[1, "auto"]} radius="15">
+          <Span>Order Delivery</Span>
+        </SecondaryButton>
       </Link>
 
       <Link to={"/travel"}>
         <PrimaryOutlinedButton
           mr={10}
           p={[2, 3]}
-          fontSize={[10, 12]}
           width={[1, "auto"]}
           radius="15"
-          label="Travel Plan"
-        />
+        >
+          <Span>Travel Plan</Span>
+        </PrimaryOutlinedButton>
       </Link>
       <Link to={"/order-list"}>
         <PrimaryOutlinedButton
           p={[2, 3]}
-          fontSize={[10, 12]}
           width={[1, "auto"]}
           radius="15"
-          label={userName}
-        />
+        >
+          <Span>{userName}</Span>
+        </PrimaryOutlinedButton>
       </Link>
     </Span>
   </CommonHeader>
@@ -80,25 +75,26 @@ const LoginHeader = ({ userName }) => (
 
 const LogoutHeader = ({ handleOnClick, handleGuestLogin }) => (
   <CommonHeader>
-    <Logo logo={logo} />
-    <Span display="flex" alignItems="center" height="10vh">
-      <SignIn
-        m={[1, 2, 3, 4]}
-        p={3}
-        width={["200px", "300px"]}
-        radius="15"
-        label="Sign In With Google"
-        icon={<GoogleIcon color="red" />}
-        onClick={handleOnClick}
-      />
-      <PrimaryOutlinedButton
-        p={[2, 3]}
-        fontSize={[10, 12]}
-        width={[1, "auto"]}
-        radius="15"
-        label="Guest User"
-        onClick={handleGuestLogin}
-      />
+    <Link to={"/"}>
+      <Logo logo={logo} pt={26} />
+    </Link>
+    <Span mt={16} mr={[0, 4]} display="flex" alignItems="center">
+      <Link to={""}>
+        <SignIn mr={10} p={[2, 3]} radius="15" onClick={handleOnClick}>
+          <GoogleIcon color="red" />
+          <Span ml={2}>Google Sign In</Span>
+        </SignIn>
+      </Link>
+      <Link to={""}>
+        <PrimaryOutlinedButton
+          p={[2, 3]}
+          width={[1, "auto"]}
+          radius="15"
+          onClick={handleGuestLogin}
+        >
+          <Span>Guest Sign In</Span>
+        </PrimaryOutlinedButton>
+      </Link>
     </Span>
   </CommonHeader>
 );

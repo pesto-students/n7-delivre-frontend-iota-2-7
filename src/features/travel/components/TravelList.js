@@ -126,7 +126,7 @@ export const TravelList = () => {
               resizableColumns
               columnResizeMode="expand"
               globalFilter={globalFilter}
-              emptyMessage="No orders found."
+              emptyMessage="No travel plans yet."
             >
               {dynamicColumns}
             </Table>
