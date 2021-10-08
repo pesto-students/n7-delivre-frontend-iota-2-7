@@ -14,7 +14,6 @@ import { Section } from "../../shared/components/Section";
 import { Span } from "../../shared/components/Span";
 import { Timeline } from "../../shared/components/Timeline";
 
-const events = ["Ordered", "Processing", "Shipped", "Delivered"];
 
 const customizedMarker = () => {
   return (
