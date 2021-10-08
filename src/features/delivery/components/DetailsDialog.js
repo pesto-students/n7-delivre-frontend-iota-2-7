@@ -32,6 +32,21 @@ function DetailsDialog({ loading, modalData, showModal, hideHandler, interestHan
     );
   };
 
+  const weightTemplate = (item) => {
+    return (
+      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
+        <Span>
+          <Label weight="bold" >
+            {item.label} :
+          </Label>
+        </Span>
+          <Span>
+            <Label>upto {item.value} kg</Label>
+          </Span>
+      </Div>
+    );
+  };
+
   const imageTemplate = (item) => {
     return (<Div><Carousel
       value={item.value}
@@ -53,7 +68,7 @@ function DetailsDialog({ loading, modalData, showModal, hideHandler, interestHan
       template: bodyTemplate,
     },
     { label: "Package", value: modalData.itemType, template: bodyTemplate },
-    { label: "Weight", value: modalData.weight, template: bodyTemplate },
+    { label: "Weight", value: modalData.weight, template: weightTemplate },
     {
       label: "Images",
       value: [{ name: "image1" }, { name: "image1" }],

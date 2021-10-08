@@ -3,30 +3,28 @@ import { SearchIcon } from "./Icon";
 import { IconInputText, InputText } from "./Input";
 import { MenuBar } from "./MenuBar";
 
-
-
 const items = [
   {
     label: "List",
     items: [
       {
         label: "Orders List",
-        url:'/order-list'
+        url: "/order-list",
       },
       {
         label: "Delivery List",
-        url: '/delivery-list'
+        url: "/delivery-list",
       },
 
       {
         label: "Volunteer List",
-        url: '/volunteer-list'
+        url: "/volunteer-list",
       },
     ],
   },
   {
     label: "Travel Plans",
-    url: '/travel-list'
+    url: "/travel-list",
   },
   {
     label: "Account",
@@ -36,12 +34,13 @@ const items = [
       },
       {
         label: "Logout",
-        command:()=>{ logout() }      
+        command: () => {
+          logout();
+        },
       },
     ],
   },
 ];
-
 
 export const NavBar = ({ value, onChange }) => {
   return (
@@ -53,7 +52,7 @@ export const NavBar = ({ value, onChange }) => {
           <InputText
             placeholder="Type order number or any other text"
             type="text"
-            width={[265, 800]}
+            width={[265, 500, 550, 600, 800]}
             height={50}
             value={value}
             onChange={onChange}
@@ -61,7 +60,6 @@ export const NavBar = ({ value, onChange }) => {
         </IconInputText>
       }
       width="auto"
-      
     />
   );
 };

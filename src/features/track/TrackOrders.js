@@ -14,7 +14,6 @@ import { Section } from "../../shared/components/Section";
 import { Span } from "../../shared/components/Span";
 import { Timeline } from "../../shared/components/Timeline";
 
-const events = ["Ordered", "Processing", "Shipped", "Delivered"];
 
 const customizedMarker = () => {
   return (
@@ -26,7 +25,6 @@ const customizedMarker = () => {
 
 function TrackOrders() {
   const { orderId } = useParams();
-  console.log(orderId);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.login.user);
   const orders = useSelector((state) => state.order.orders.active);
@@ -34,11 +32,22 @@ function TrackOrders() {
     (order) => order.status === "Track" && order.id === orderId
   );
   const [ordersToTrack, setOrdersToTrack] = useState(trackingOrders);
+  const [events, setEvents] = useState(['Ordered', 'Awaiting', 'Awaiting', 'Awaiting'])
   useEffect(() => {
     dispatch(fetchOrders(user.id));
   }, [dispatch, user]);
 
-  useEffect(() => {});
+  useEffect(() => {
+    setTimeout(() => {
+      setEvents(['Ordered', 'Picked','Awaiting', 'Awaiting'])
+    },5000)
+    setTimeout(() => {
+      setEvents(['Ordered', 'Picked', 'On Route','Awaiting'])
+    },10000)
+    setTimeout(() => {
+      setEvents(['Ordered', 'Picked', 'On Route', 'Delivered'])
+    },15000)
+  },[]);
 
   const orderHistory = () => {
     const trackingOrders = orders.filter((order) => order.status === "Track");
@@ -63,9 +72,8 @@ function TrackOrders() {
               </Heading>
               <Timeline
                 layout="horizontal"
-                opposite={<span>&nbsp;</span>}
                 value={events}
-                align="alternate"
+                align="top"
                 marker={customizedMarker}
                 content={(item) => item}
               />

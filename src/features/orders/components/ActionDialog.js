@@ -42,12 +42,12 @@ function ActionDialog({
     return (
       <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
-          <Label weight="bold" size="big">
+          <Label weight="bold" >
             {item.label} :
           </Label>
         </Span>
           <Span>
-            <Label size="big">{item.value}</Label>
+            <Label >{item.value}</Label>
           </Span>
       </Div>
     );
@@ -56,12 +56,12 @@ function ActionDialog({
     return (
       <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
-          <Label weight="bold" size="big">
+          <Label weight="bold" >
             {item.label} :
           </Label>
         </Span>
           <Span>
-            <Label size="big">upto {item.value} kg</Label>
+            <Label>upto {item.value} kg</Label>
           </Span>
       </Div>
     );
@@ -71,18 +71,18 @@ function ActionDialog({
     return showPaymentModal ? (
       <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
-          <Label weight="xbold" size="big">
+          <Label weight="xbold">
             {item.label} :
           </Label>
         </Span>
         <Span>
-        <Label size="big"> <RupeeIcon/> {item.value}</Label>
+        <Label > <RupeeIcon/> {item.value}</Label>
         </Span>
       </Div>
     ) : (
       <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
-          <Label weight="xbold" size="big">
+          <Label weight="xbold" >
             Rating :
           </Label>
         </Span>
