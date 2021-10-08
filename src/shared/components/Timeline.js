@@ -9,7 +9,7 @@ export const Timeline = styled(DTimeline).attrs({
 
   .p-timeline-event-separator {
     .p-timeline-event-connector {
-      height: 8px;
+      height: 4px;
     }
   }
 
