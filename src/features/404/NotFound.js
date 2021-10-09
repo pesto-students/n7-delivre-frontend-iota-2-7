@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Renders Not Found Component
+ * When no routes match within the switch router this component will be rendered
+ * @returns JSX element
+ */
 function NotFound() {
     return (
         <div id="wrapper">

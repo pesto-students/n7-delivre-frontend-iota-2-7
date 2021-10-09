@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ActionDialog.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ActionDialog.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { PrimaryButton } from "../../../shared/components/Button";
+import { Dialog } from "../../../shared/components/Dialog";
+import { Div } from "../../../shared/components/Div";
+import Form from "../../../shared/components/Form";
+import { Label } from "../../../shared/components/Label";
+import { Span } from "../../../shared/components/Span";
+import { CardElement } from "@stripe/react-stripe-js";
+import { Rating } from "../../../shared/components/Rating";
+import { RupeeIcon } from "../../../shared/components/Icon";
+
+
+
+/**
+ * Renders Dialog Component for respective Orders Item
+ * @param {boolean} loading - loading state for button 
+ * @param {JSON} modalData - data to populate in Dialog
+ * @param {boolean} showModal - flag to show/hide Dialog
+ * @param {boolean} showPaymentModal - flag to show/hide Dialog
+ * @param {Function} hideHandler - Handler for hiding Dialog
+ * @param {Function} acceptHandler - Handler for on click of Accept
+ * @param {Function} rejectHandler - Handler for on click of Reject
+ * @param {Function} handleStripePayment - Handler for on click of Pay
+ * @returns {JSX} Dialog to show record of selected Table Row
+ */
+
+const ActionDialog = ({ modalData, showModal, showPaymentModal, acceptHandler, hideHandler, handleStripePayment, rejectHandler, loading }) => {
+
+
+  /** Render footer in Dialog 
+   * If Action Dialog then display Accept/Reject buttons
+   * Else display Proceed to pay button
+  */
+  const footer = showPaymentModal ? (
+
+    &lt;Form onSubmit={handleStripePayment} textAlign="center">
+      &lt;Div>
+        &lt;CardElement />
+      &lt;/Div>
+      &lt;PrimaryButton loading={loading} label="Proceed to pay"/>
+    &lt;/Form>
+
+  ) : (
+    &lt;Div textAlign="center">
+      &lt;PrimaryButton label="Accept" onClick={acceptHandler} />
+      &lt;PrimaryButton
+        label="Reject"
+        background="red"
+        bold="true"
+        onClick={rejectHandler}
+      />
+    &lt;/Div>
+  );
+
+
+
+  /** Render Template in respective Column with Item*/
+  const bodyTemplate = ({label, value}) => {
+
+    return (
+
+      &lt;Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
+        &lt;Span>
+          &lt;Label weight="bold" >
+            {label} :
+          &lt;/Label>
+        &lt;/Span>
+          &lt;Span>
+            &lt;Label >{value}&lt;/Label>
+          &lt;/Span>
+      &lt;/Div>
+
+    );
+  };
+
+
+  /** Render Template in respective Column with Item*/
+  const weightTemplate = ({label, value}) => {
+
+    return (
+
+      &lt;Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
+        &lt;Span>
+          &lt;Label weight="bold" >
+            {label} :
+          &lt;/Label>
+        &lt;/Span>
+          &lt;Span>
+            &lt;Label>upto {value} kg&lt;/Label>
+          &lt;/Span>
+      &lt;/Div>
+
+    );
+  };
+
+
+  /** Render Template in respective Column with Item
+   * If Action Dialog then display Rating column buttons
+   * Else display Amount column
+  */
+  const amountTemplate = ({label, value}) => {
+
+    return showPaymentModal ? (
+
+      &lt;Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
+        &lt;Span>
+          &lt;Label weight="xbold">
+            {label} :
+          &lt;/Label>
+        &lt;/Span>
+        &lt;Span>
+        &lt;Label > &lt;RupeeIcon/> {value}&lt;/Label>
+        &lt;/Span>
+      &lt;/Div>
+
+    ) : (
+
+      &lt;Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
+        &lt;Span>
+          &lt;Label weight="xbold" >
+            Rating :
+          &lt;/Label>
+        &lt;/Span>
+        &lt;Span>
+          &lt;Rating stars={5} value={4} cancel={false} />
+        &lt;/Span>
+      &lt;/Div>
+
+    );
+  };
+
+
+
+
+  /**
+   * Configuration List of Dialog Items
+   */
+  const dialogItems = [
+    { key: 0,label: "Volunteer", value: modalData.volunteerName, template: bodyTemplate },
+    {
+      key: 1,
+      label: "Pickup",
+      value: modalData["pickup"]["name"],
+      template: bodyTemplate,
+    },
+    {
+      key: 2,
+      label: "Delivery",
+      value: modalData["delivery"]["name"],
+      template: bodyTemplate,
+    },
+    { lkey: 3,label: "Package", value: modalData.itemType, template: bodyTemplate },
+    { label: "Weight", value: modalData.weight, template: weightTemplate },
+    {
+      key: 4,
+      label: "Total Amount",
+      value: modalData.price,
+      template: amountTemplate,
+    },
+  ];
+
+  
+
+  
+  return (
+    &lt;Dialog
+      header="Delivery details"
+      visible={showModal || showPaymentModal}
+      style={{ width: "30vw" }}
+      footer={footer}
+      breakpoints={{ "960px": "75vw" }}
+      onHide={hideHandler}
+    >
+      {dialogItems.map((item) => item.template(item))}
+    &lt;/Dialog>
+  );
+}
+
+export default ActionDialog;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ActionDialog">ActionDialog</a></li><li><a href="global.html#Address">Address</a></li><li><a href="global.html#calculatePrice">calculatePrice</a></li><li><a href="global.html#Chip">Chip</a></li><li><a href="global.html#CreateOrder">CreateOrder</a></li><li><a href="global.html#DeliverySchedule">DeliverySchedule</a></li><li><a href="global.html#ItemType">ItemType</a></li><li><a href="global.html#OrderForm">OrderForm</a></li><li><a href="global.html#OrderList">OrderList</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#SecureParcel">SecureParcel</a></li><li><a href="global.html#stripePromise">stripePromise</a></li><li><a href="global.html#submitHandler">submitHandler</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Oct 09 2021 06:15:15 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

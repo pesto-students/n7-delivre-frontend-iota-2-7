@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: TrackOrders.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: TrackOrders.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchOrders } from "../../redux/reducers/orderReducer";
+import { PrimaryOutlinedButton } from "../../shared/components/Button";
+import { Container } from "../../shared/components/Container";
+import { Div } from "../../shared/components/Div";
+import { Heading } from "../../shared/components/Heading";
+import { CircleIcon, RupeeIcon } from "../../shared/components/Icon";
+import { Label } from "../../shared/components/Label";
+import { NavBar } from "../../shared/components/Navbar";
+import { Section } from "../../shared/components/Section";
+import { Span } from "../../shared/components/Span";
+import { Timeline } from "../../shared/components/Timeline";
+
+
+const customizedMarker = () => {
+  return (
+    &lt;Span>
+      &lt;CircleIcon color="var(--secondary)" size="3x"/>
+    &lt;/Span>
+  );
+};
+
+function TrackOrders() {
+
+  /** Params hook */
+  const { orderId } = useParams();
+
+  /** Dispatch hooks */
+  const dispatch = useDispatch();
+  
+  /** Selector hooks */
+  const user = useSelector((state) => state.login.user);
+  const orders = useSelector((state) => state.order.orders.active);
+  
+  const trackingOrders = orders.filter(
+    (order) => order.status === "Track" &amp;&amp; order.id === orderId
+  );
+  
+  /** State hooks */
+  const [ordersToTrack, setOrdersToTrack] = useState(trackingOrders);
+  const [events, setEvents] = useState(['Ordered', 'Awaiting', 'Awaiting', 'Awaiting'])
+  
+
+  /** Effect hooks */
+  useEffect(() => {
+
+    dispatch(fetchOrders(user.id));
+  
+  }, [dispatch, user]);
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      setEvents(['Ordered', 'Picked','Awaiting', 'Awaiting'])
+    },5000)
+
+    setTimeout(() => {
+      setEvents(['Ordered', 'Picked', 'On Route','Awaiting'])
+    },10000)
+    
+    setTimeout(() => {
+      setEvents(['Ordered', 'Picked', 'On Route', 'Delivered'])
+    },15000)
+
+  },[]);
+
+  
+  //Handler for filtering order history
+  const orderHistory = () => {
+    const trackingOrders = orders.filter((order) => order.status === "Track");
+    setOrdersToTrack(trackingOrders);
+  };
+  
+  
+  return (
+    &lt;Section>
+      &lt;NavBar />
+
+      &lt;Container width={["1", "auto"]}>
+        &lt;PrimaryOutlinedButton mt={4} label="Order History" onClick={orderHistory} />
+        {ordersToTrack.map((order) => (
+          &lt;Div key={order.id}>
+
+            &lt;Div>
+              &lt;Heading size="big" weight="hairline" mt={40} mb={40}>
+                Order #{order.id} - &lt;RupeeIcon /> {order.price}
+              &lt;/Heading>
+            &lt;/Div>
+
+            &lt;Div>
+              &lt;Heading size="medium" weight="bold" mt={40} mb={40}>
+                Track Details
+              &lt;/Heading>
+              &lt;Timeline
+                layout="horizontal"
+                value={events}
+                align="top"
+                marker={customizedMarker}
+                content={(item) => item}
+              />
+            &lt;/Div>
+
+            &lt;Div
+              mb={20}
+              shadow="true"
+              display="grid"
+              gridTemplateColumns="1fr 2fr"
+            >
+              &lt;Div display="grid">
+
+                &lt;Heading size="medium" weight="hairline" mb={40}>
+                  Courier
+                &lt;/Heading>
+
+                &lt;Label weight="bold"> Volunteer&lt;/Label>
+
+                &lt;Label>{order.volunteerName}&lt;/Label>
+                
+                &lt;Label weight="bold" mt={2}>
+                  Contact
+                &lt;/Label>
+                
+                &lt;Label>{order.pickupMobile}&lt;/Label>
+              &lt;/Div>
+              
+              &lt;Div display="grid">
+                
+                &lt;Heading size="medium" weight="hairline" mb={40}>
+                  Order Details
+                &lt;/Heading>
+                
+                &lt;Span display="flex">
+                  
+                  &lt;Div display="flex" flexDirection="column">
+                    
+                    &lt;Label weight="bold">Declared value&lt;/Label>
+                    
+                    &lt;Label>{order.itemValue}&lt;/Label>
+                    
+                    &lt;Label weight="bold" mt={2}>
+                      Payment type
+                    &lt;/Label>
+                    
+                    &lt;Label>Card&lt;/Label>
+                  &lt;/Div>
+                  
+                  &lt;Div display="flex" flexDirection="column">
+                    
+                    &lt;Label weight="bold">Content&lt;/Label>
+                    
+                    &lt;Label>{order.itemType}&lt;/Label>
+                    
+                    &lt;Label weight="bold" mt={2}>
+                      Weight
+                    &lt;/Label>
+                    
+                    &lt;Label>upto {order.weight} kg&lt;/Label>
+                  
+                  &lt;/Div>
+                
+                &lt;/Span>
+              
+              &lt;/Div>
+            &lt;/Div>
+
+          &lt;/Div>
+        ))}
+      &lt;/Container>
+    &lt;/Section>
+  );
+}
+
+export default TrackOrders;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Oct 09 2021 06:17:15 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

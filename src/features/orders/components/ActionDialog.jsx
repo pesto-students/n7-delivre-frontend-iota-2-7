@@ -9,23 +9,37 @@ import { CardElement } from "@stripe/react-stripe-js";
 import { Rating } from "../../../shared/components/Rating";
 import { RupeeIcon } from "../../../shared/components/Icon";
 
-function ActionDialog({
-  modalData,
-  showModal,
-  showPaymentModal,
-  acceptHandler,
-  hideHandler,
-  handleStripePayment,
-  rejectHandler,
-  loading
-}) {
+
+
+/**
+ * Renders Dialog Component for respective Orders Item
+ * @param {boolean} loading - loading state for button 
+ * @param {JSON} modalData - data to populate in Dialog
+ * @param {boolean} showModal - flag to show/hide Dialog
+ * @param {boolean} showPaymentModal - flag to show/hide Dialog
+ * @param {Function} hideHandler - Handler for hiding Dialog
+ * @param {Function} acceptHandler - Handler for on click of Accept
+ * @param {Function} rejectHandler - Handler for on click of Reject
+ * @param {Function} handleStripePayment - Handler for on click of Pay
+ * @returns {JSX} Dialog to show record of selected Table Row
+ */
+
+const ActionDialog = ({ modalData, showModal, showPaymentModal, acceptHandler, hideHandler, handleStripePayment, rejectHandler, loading }) => {
+
+
+  /** Render footer in Dialog 
+   * If Action Dialog then display Accept/Reject buttons
+   * Else display Proceed to pay button
+  */
   const footer = showPaymentModal ? (
+
     <Form onSubmit={handleStripePayment} textAlign="center">
       <Div>
         <CardElement />
       </Div>
       <PrimaryButton loading={loading} label="Proceed to pay"/>
     </Form>
+
   ) : (
     <Div textAlign="center">
       <PrimaryButton label="Accept" onClick={acceptHandler} />
@@ -38,49 +52,70 @@ function ActionDialog({
     </Div>
   );
 
-  const bodyTemplate = (item) => {
+
+
+  /** Render Template in respective Column with Item*/
+  const bodyTemplate = ({label, value}) => {
+
     return (
-      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
+
+      <Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
           <Label weight="bold" >
-            {item.label} :
+            {label} :
           </Label>
         </Span>
           <Span>
-            <Label >{item.value}</Label>
+            <Label >{value}</Label>
           </Span>
       </Div>
-    );
-  };
-  const weightTemplate = (item) => {
-    return (
-      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
-        <Span>
-          <Label weight="bold" >
-            {item.label} :
-          </Label>
-        </Span>
-          <Span>
-            <Label>upto {item.value} kg</Label>
-          </Span>
-      </Div>
+
     );
   };
 
-  const amountTemplate = (item) => {
+
+  /** Render Template in respective Column with Item*/
+  const weightTemplate = ({label, value}) => {
+
+    return (
+
+      <Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
+        <Span>
+          <Label weight="bold" >
+            {label} :
+          </Label>
+        </Span>
+          <Span>
+            <Label>upto {value} kg</Label>
+          </Span>
+      </Div>
+
+    );
+  };
+
+
+  /** Render Template in respective Column with Item
+   * If Action Dialog then display Rating column buttons
+   * Else display Amount column
+  */
+  const amountTemplate = ({label, value}) => {
+
     return showPaymentModal ? (
-      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
+
+      <Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
           <Label weight="xbold">
-            {item.label} :
+            {label} :
           </Label>
         </Span>
         <Span>
-        <Label > <RupeeIcon/> {item.value}</Label>
+        <Label > <RupeeIcon/> {value}</Label>
         </Span>
       </Div>
+
     ) : (
-      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
+
+      <Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
           <Label weight="xbold" >
             Rating :
@@ -90,9 +125,16 @@ function ActionDialog({
           <Rating stars={5} value={4} cancel={false} />
         </Span>
       </Div>
+
     );
   };
 
+
+
+
+  /**
+   * Configuration List of Dialog Items
+   */
   const dialogItems = [
     { key: 0,label: "Volunteer", value: modalData.volunteerName, template: bodyTemplate },
     {
@@ -117,6 +159,9 @@ function ActionDialog({
     },
   ];
 
+  
+
+  
   return (
     <Dialog
       header="Delivery details"

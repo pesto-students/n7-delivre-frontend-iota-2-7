@@ -24,35 +24,57 @@ const customizedMarker = () => {
 };
 
 function TrackOrders() {
+
+  /** Params hook */
   const { orderId } = useParams();
+
+  /** Dispatch hooks */
   const dispatch = useDispatch();
+  
+  /** Selector hooks */
   const user = useSelector((state) => state.login.user);
   const orders = useSelector((state) => state.order.orders.active);
+  
   const trackingOrders = orders.filter(
     (order) => order.status === "Track" && order.id === orderId
   );
+  
+  /** State hooks */
   const [ordersToTrack, setOrdersToTrack] = useState(trackingOrders);
   const [events, setEvents] = useState(['Ordered', 'Awaiting', 'Awaiting', 'Awaiting'])
+  
+
+  /** Effect hooks */
   useEffect(() => {
+
     dispatch(fetchOrders(user.id));
+  
   }, [dispatch, user]);
 
   useEffect(() => {
+
     setTimeout(() => {
       setEvents(['Ordered', 'Picked','Awaiting', 'Awaiting'])
     },5000)
+
     setTimeout(() => {
       setEvents(['Ordered', 'Picked', 'On Route','Awaiting'])
     },10000)
+    
     setTimeout(() => {
       setEvents(['Ordered', 'Picked', 'On Route', 'Delivered'])
     },15000)
+
   },[]);
 
+  
+  //Handler for filtering order history
   const orderHistory = () => {
     const trackingOrders = orders.filter((order) => order.status === "Track");
     setOrdersToTrack(trackingOrders);
   };
+  
+  
   return (
     <Section>
       <NavBar />
@@ -60,12 +82,14 @@ function TrackOrders() {
       <Container width={["1", "auto"]}>
         <PrimaryOutlinedButton mt={4} label="Order History" onClick={orderHistory} />
         {ordersToTrack.map((order) => (
-          <React.Fragment>
+          <Div key={order.id}>
+
             <Div>
               <Heading size="big" weight="hairline" mt={40} mb={40}>
                 Order #{order.id} - <RupeeIcon /> {order.price}
               </Heading>
             </Div>
+
             <Div>
               <Heading size="medium" weight="bold" mt={40} mb={40}>
                 Track Details
@@ -78,6 +102,7 @@ function TrackOrders() {
                 content={(item) => item}
               />
             </Div>
+
             <Div
               mb={20}
               shadow="true"
@@ -85,42 +110,63 @@ function TrackOrders() {
               gridTemplateColumns="1fr 2fr"
             >
               <Div display="grid">
+
                 <Heading size="medium" weight="hairline" mb={40}>
                   Courier
                 </Heading>
+
                 <Label weight="bold"> Volunteer</Label>
+
                 <Label>{order.volunteerName}</Label>
+                
                 <Label weight="bold" mt={2}>
-                  {" "}
                   Contact
                 </Label>
+                
                 <Label>{order.pickupMobile}</Label>
               </Div>
+              
               <Div display="grid">
+                
                 <Heading size="medium" weight="hairline" mb={40}>
                   Order Details
                 </Heading>
+                
                 <Span display="flex">
+                  
                   <Div display="flex" flexDirection="column">
+                    
                     <Label weight="bold">Declared value</Label>
+                    
                     <Label>{order.itemValue}</Label>
+                    
                     <Label weight="bold" mt={2}>
                       Payment type
                     </Label>
+                    
                     <Label>Card</Label>
                   </Div>
+                  
                   <Div display="flex" flexDirection="column">
+                    
                     <Label weight="bold">Content</Label>
+                    
                     <Label>{order.itemType}</Label>
+                    
                     <Label weight="bold" mt={2}>
                       Weight
                     </Label>
+                    
                     <Label>upto {order.weight} kg</Label>
+                  
                   </Div>
+                
                 </Span>
+              
               </Div>
             </Div>
-          </React.Fragment>
+
+          </Div>
         ))}
       </Container>
     </Section>
