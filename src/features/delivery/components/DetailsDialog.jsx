@@ -1,4 +1,3 @@
-import { ErrorBoundary } from "@sentry/react";
 import React from "react";
 import { PrimaryButton } from "../../../shared/components/Button";
 import { Carousel } from "../../../shared/components/Carousel";
@@ -8,53 +7,93 @@ import { Image } from "../../../shared/components/Image";
 import { Label } from "../../../shared/components/Label";
 import { Span } from "../../../shared/components/Span";
 
-function DetailsDialog({ loading, modalData, showModal, hideHandler, interestHandler }) {
+/**
+ * Renders Dialog Component for respective Orders Item
+ * @param {boolean} loading - loading state for button 
+ * @param {JSON} modalData - data to populate in Dialog
+ * @param {boolean} showModal - flag to show/hide Dialog
+ * @param {Function} hideHandler - Handler for hiding Dialog
+ * @param {Function} interestHandler - Handler for on click of Interested
+ * @returns {JSX} Dialog to show record of selected Table Row
+ */
+const DetailsDialog = ({ loading, modalData, showModal, hideHandler, interestHandler }) => {
+
+  /** Render footer in Dialog */
   const footer = (
+
     <Div textAlign="center">
       <PrimaryButton loading={loading} label="Interested" onClick={interestHandler} />
     </Div>
+    
   );
 
-  const bodyTemplate = (item) => {
+
+  /** Render Template in respective Column with Item*/
+  const bodyTemplate = ({label, value}) => {
+
     return (
+      
       <Div display='grid' gridTemplateColumns='1fr 1fr'>
         <Span>
           <Label weight="bold">
-            {item.label} 
+            {label} 
           </Label>
         </Span>
-        <ErrorBoundary>
           <Span>
-            <Label>{item.value}</Label>
+            <Label>{value}</Label>
           </Span>
-        </ErrorBoundary>
       </Div>
+
     );
   };
 
-  const weightTemplate = (item) => {
+
+  /** Render Template in respective Column with Item*/
+  const weightTemplate = ({label, value}) => {
+
     return (
-      <Div key={item.label} display="grid" gridTemplateColumns="1fr 1fr">
+      
+      <Div key={label} display="grid" gridTemplateColumns="1fr 1fr">
         <Span>
           <Label weight="bold" >
-            {item.label} :
+            {label} :
           </Label>
         </Span>
           <Span>
-            <Label>upto {item.value} kg</Label>
+            <Label>upto {value} kg</Label>
           </Span>
       </Div>
     );
+
   };
 
-  const imageTemplate = (item) => {
-    return (<Div><Carousel
-      value={item.value}
-      numVisible={1}
-      itemTemplate={productTemplate}
-    /></Div>);
+  /** Render Template in respective Column with Item*/
+  const imageTemplate = ({value}) => {
+
+    return (
+      <Div>
+        <Carousel
+          value={value}
+          numVisible={1}
+          itemTemplate={productTemplate}
+        />
+      </Div>
+      );
   };
 
+
+  /** Render Template in respective Column with Item*/
+  const productTemplate = ({name}) => (
+    <Image
+      src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFja2FnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+      alt={name}
+      width={1}
+      className="product-image"
+    />
+  );
+  
+
+  /** List of Items Data for Dialog */
   const dialogItems = [
     { label: "Customer", value: modalData.username, template: bodyTemplate },
     {
@@ -76,14 +115,6 @@ function DetailsDialog({ loading, modalData, showModal, hideHandler, interestHan
     },
   ];
 
-  const productTemplate = (product) => (
-    <Image
-      src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFja2FnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-      alt={product.name}
-      width={1}
-      className="product-image"
-    />
-  );
 
   return (
     <Dialog

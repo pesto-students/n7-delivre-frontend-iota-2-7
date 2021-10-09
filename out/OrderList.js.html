@@ -1,4 +1,32 @@
-import React, { useEffect, useState } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: OrderList.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: OrderList.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from "react";
 import { Skeleton } from "../../../shared/components/Skeleton";
 import { TextButton } from "../../../shared/components/Button";
 import { useSelector, useDispatch } from "react-redux";
@@ -199,12 +227,12 @@ const OrderList = () => {
    */
   const bodyTemplate = (item, {field, header}) => {
     return loading ? (
-      <Skeleton key={field} />
+      &lt;Skeleton key={field} />
     ) : (
-      <React.Fragment>
-        <span className="p-column-title">{header}</span>
+      &lt;React.Fragment>
+        &lt;span className="p-column-title">{header}&lt;/span>
         {item[field]}
-      </React.Fragment>
+      &lt;/React.Fragment>
     );
   };
 
@@ -217,12 +245,12 @@ const OrderList = () => {
    */
   const weightTemplate = (item, {field, header}) => {
     return loading ? (
-      <Skeleton key={field} />
+      &lt;Skeleton key={field} />
     ) : (
-      <React.Fragment>
-        <span className="p-column-title">{header}</span>
+      &lt;React.Fragment>
+        &lt;span className="p-column-title">{header}&lt;/span>
         upto {item[field]} kg
-      </React.Fragment>
+      &lt;/React.Fragment>
     );
   };
 
@@ -236,12 +264,12 @@ const OrderList = () => {
    */
   const cityTemplate = (item, {field, header}) => {
     return loading ? (
-      <Skeleton key={field} />
+      &lt;Skeleton key={field} />
     ) : (
-      <React.Fragment>
-        <span className="p-column-title">{header}</span>
+      &lt;React.Fragment>
+        &lt;span className="p-column-title">{header}&lt;/span>
         {item[field]["name"]}
-      </React.Fragment>
+      &lt;/React.Fragment>
     );
   };
 
@@ -256,11 +284,11 @@ const OrderList = () => {
   const statusBodyTemplate = (item, {field, header}) => {
 
     return loading ? (
-      <Skeleton key={field} />
+      &lt;Skeleton key={field} />
     ) : (
-      <React.Fragment>
-        <span className="p-column-title">{header}</span>
-        <TextButton
+      &lt;React.Fragment>
+        &lt;span className="p-column-title">{header}&lt;/span>
+        &lt;TextButton
           p={1}
           width="auto"
           radius={4}
@@ -268,7 +296,7 @@ const OrderList = () => {
           label={item[field]}
           onClick={() => statusHandler(item)}
         />
-      </React.Fragment>
+      &lt;/React.Fragment>
     );
   };
 
@@ -423,8 +451,8 @@ const OrderList = () => {
 
 
   return (
-    <React.Fragment>
-      <List 
+    &lt;React.Fragment>
+      &lt;List 
         title='Order List' 
         globalFilter={globalFilter} 
         setGlobalFilter={setGlobalFilter} 
@@ -434,7 +462,7 @@ const OrderList = () => {
         dynamicColumns={() => dynamicColumns(columns)}
       />
 
-      <ActionDialog 
+      &lt;ActionDialog 
         loading={processing} 
         modalData={modalData} 
         showModal={showModal} 
@@ -444,17 +472,40 @@ const OrderList = () => {
         hideHandler={hideHandler} 
         handleStripePayment={handleStripePayment}
         />
-    </React.Fragment>
+    &lt;/React.Fragment>
   );
 };
 
 
 
 const StripedOrderList = ({children}) => (
-  <Elements stripe={stripePromise}>
-    <OrderList> {children} </OrderList>
-  </Elements>
+  &lt;Elements stripe={stripePromise}>
+    &lt;OrderList> {children} &lt;/OrderList>
+  &lt;/Elements>
 );
 
 
 export default StripedOrderList;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ActionDialog">ActionDialog</a></li><li><a href="global.html#Address">Address</a></li><li><a href="global.html#calculatePrice">calculatePrice</a></li><li><a href="global.html#Chip">Chip</a></li><li><a href="global.html#CreateOrder">CreateOrder</a></li><li><a href="global.html#DeliverySchedule">DeliverySchedule</a></li><li><a href="global.html#ItemType">ItemType</a></li><li><a href="global.html#OrderForm">OrderForm</a></li><li><a href="global.html#OrderList">OrderList</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#SecureParcel">SecureParcel</a></li><li><a href="global.html#stripePromise">stripePromise</a></li><li><a href="global.html#submitHandler">submitHandler</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Oct 09 2021 06:15:15 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

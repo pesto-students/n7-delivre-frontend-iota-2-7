@@ -1,4 +1,4 @@
-import { logout } from "../utils/utility";
+import { logout } from "../api/login";
 import { SearchIcon } from "./Icon";
 import { IconInputText, InputText } from "./Input";
 import { MenuBar } from "./MenuBar";

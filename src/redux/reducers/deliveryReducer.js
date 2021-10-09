@@ -3,13 +3,13 @@ import { fetchApi, updateApi } from "../../shared/api/crud";
 
 export const fetchDeliveries = createAsyncThunk(
   "delivery/fetchDeliveries",
-  async (payload, thunkAPI) => {
+  async (payload) => {
     const response = await fetchApi(payload, "delivery");
     console.log("Response from API", response);
     const orders = {
       all: response,
       active: response.filter(
-        (res) => res.status === "Assigned"
+        (res) => res.volunteer === ""
       ),
       completed: response.filter((res) => res.status === "Completed"),
     };
@@ -18,7 +18,7 @@ export const fetchDeliveries = createAsyncThunk(
 );
 export const updateDelivery = createAsyncThunk(
   "delivery/updateDelivery",
-  async (payload, thunkAPI) => {
+  async (payload) => {
     console.log("Payload", payload);
     const response = await updateApi(payload, "orders");
     console.log("Response from API", response);

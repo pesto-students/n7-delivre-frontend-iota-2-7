@@ -1,8 +1,8 @@
 import { signInWithPopup, signOut } from "@firebase/auth";
 import { createApi } from "../api/crud";
-import { auth, provider } from "./firebase";
+import { auth, provider } from "../utils/firebase";
 
-export const signIn = async () => {
+export const googleSignIn = async () => {
   console.log("Signing in...");
   try{
   const result = await signInWithPopup(auth, provider);
