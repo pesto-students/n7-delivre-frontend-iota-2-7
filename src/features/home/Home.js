@@ -64,8 +64,8 @@ const Home = () => {
     /** initialize guest user object  */
     const guestUser = {
       id: "guest140994",
-      name: "Charlotte Andrea",
-      email: "charlotte.andrea@gmail.com",
+      name: "John Doe",
+      email: "john.doe@gmail.com",
     };
 
 
@@ -74,7 +74,7 @@ const Home = () => {
 
     if (response) {
 
-      dispatch(loginSuccessful(user));
+      dispatch(loginSuccessful(response));
 
       history.push("/order-list");
       
