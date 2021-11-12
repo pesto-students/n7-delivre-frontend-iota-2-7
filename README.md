@@ -17,7 +17,17 @@ Go to this url for live access [Delivre App](https://delivre-6843b.web.app).
 
 ## Tech Stack 
 
-Follow this to know about tech stack [Tech Stack](https://iota-2.atlassian.net/wiki/spaces/PESTON7IOT/pages/557067/Tech+Stack+-+D+E+L+I+V+R+E)
+1. `React JS`
+2. `Redux`
+3. `CSS`
+4. `Styled Components`
+5. `Styled System`
+6. `Prettier`
+7. `Eslint`
+8. `Yup`
+9. `Sentry`
+10. `Stripe`
+
 
 ## Product Requirement Document
 
