@@ -120,7 +120,7 @@ const Home = () => {
           component={TrackOrders}
           auth={isLoggedIn}
         />
-        <Route path="/" component={() => <Intro />} />
+        <Route path="/" component={() => <Intro handleOnClick={handleGuestLogin}/>} />
         <Route default component={NotFound} />
       </Switch>
       <Footer position="relative" bottom="0" mt={40} />
