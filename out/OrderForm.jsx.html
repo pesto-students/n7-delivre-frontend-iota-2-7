@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: OrderForm.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: OrderForm.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { Div } from "../../../shared/components/Div";
+import { Container } from "../../../shared/components/Container";
+import { Heading } from "../../../shared/components/Heading";
+import { Label } from "../../../shared/components/Label";
+import { Checkbox } from "../../../shared/components/Checkbox";
+import { Section } from "../../../shared/components/Section";
+import { Address } from "./Address";
+import { Weight } from "../../../shared/components/Weight";
+import { SelectBox } from "../../../shared/components/SelectBox";
+import Form from "../../../shared/components/Form";
+import Field from "../../../shared/components/Field";
+import DeliverySchedule from "./DeliverySchedule";
+import ItemType from "./ItemType";
+import SecureParcel from "./Insurance";
+import Price from "./Price";
+import Error from "../../../shared/components/Error";
+
+
+
+/** Render Order Form Component
+ * @param {Object} formik'
+ * @param {Array} partners
+ * @param {boolean} loading
+ * @param {Function} calculatePrice
+ * @param {String} itemValuePrice
+ * @param {Function} onBlurHandler
+ * @returns Form for Create Order
+ */
+const OrderForm = ({formik, partners, loading, calculatePrice, itemValuePrice, onBlurHandler }) => {
+
+  return (
+
+    &lt;Section>
+
+      &lt;Container width={[1, "auto"]}>
+
+        {/* title */}
+        &lt;Div>
+          &lt;Heading size="big" weight="hairline" mt={40} mb={40}>
+            Order
+          &lt;/Heading>
+        &lt;/Div>
+
+
+        {/* Delivery Schedule */}
+        &lt;DeliverySchedule />
+
+
+        {/* Form */}
+        &lt;Form onSubmit={formik.handleSubmit}>
+
+        {/* Weight */}
+        &lt;Div width={[1, "auto"]} shadow mt={20}>
+          &lt;Weight
+            id="weight"
+            name="weight"
+            value={formik.values.weight}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          &lt;Error formik={formik} name="weight" />
+        &lt;/Div>
+
+        {/* Pickup Address */}
+        &lt;Address title="Pickup" formik={formik} />
+
+        {/* Delivery Address */}
+        &lt;Address title="Delivery" formik={formik} />
+
+        {/* Item Type */}
+        &lt;ItemType formik={formik} />
+
+        {/* SecureParcel */}
+        &lt;SecureParcel
+            formik={formik}
+            itemValuePrice={itemValuePrice}
+            onBlur={onBlurHandler}
+        />
+
+        {/* Delivery Bag Option */}
+        &lt;Field p={3} mt={20}>
+            &lt;Checkbox
+              inputId="deliveryBag"
+              name="deliveryBag"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              checked={formik.values.deliveryBag}
+              mr={2}
+            >&lt;/Checkbox>
+            &lt;Label htmlFor="deliveryBag">
+              Prefer Courier with Delivery Bag
+            &lt;/Label>
+        &lt;/Field>
+
+
+        {/* Delivery Partner Option */}
+        &lt;Field p={3} mt={20}>
+            &lt;Label weight="bold">Delivery Partner&lt;/Label>
+            &lt;SelectBox
+              value={formik.values.deliveryPartner}
+              id="deliveryPartner"
+              name="deliveryPartner"
+              options={partners}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              mt={10}
+              large
+            />
+            &lt;Error formik={formik} name="deliveryPartner" />
+        &lt;/Field>
+
+
+        {/* Price component */}
+        &lt;Price
+            priceHandler={() => calculatePrice(formik.values)}
+            loading={loading}
+        />
+
+        &lt;/Form>
+        
+      &lt;/Container>
+    &lt;/Section>
+  );
+};
+
+export default OrderForm;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ActionDialog">ActionDialog</a></li><li><a href="global.html#Address">Address</a></li><li><a href="global.html#calculatePrice">calculatePrice</a></li><li><a href="global.html#Chip">Chip</a></li><li><a href="global.html#CreateOrder">CreateOrder</a></li><li><a href="global.html#DeliverySchedule">DeliverySchedule</a></li><li><a href="global.html#ItemType">ItemType</a></li><li><a href="global.html#OrderForm">OrderForm</a></li><li><a href="global.html#OrderList">OrderList</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#SecureParcel">SecureParcel</a></li><li><a href="global.html#stripePromise">stripePromise</a></li><li><a href="global.html#submitHandler">submitHandler</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Oct 09 2021 06:15:15 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

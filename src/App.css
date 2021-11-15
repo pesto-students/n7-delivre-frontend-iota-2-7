@@ -1,0 +1,67 @@
+@import url(./variables.css);
+
+li{
+  list-style-type: none;
+}
+.delivre-header {
+  width: 100%;
+  height: 140px;
+  background: var(--white);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background: var(--tertiary);
+}
+
+.p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem var(--secondary);
+  border-color: var(--primary);
+}
+
+.p-datatable.p-datatable-hoverable-rows
+  .p-datatable-tbody
+  > tr:not(.p-highlight):hover {
+  background: var(--tertiary);
+}
+
+a {
+  text-decoration: none;
+}
+
+.filter-buttons {
+  display: flex;
+}
+
+.insurance-field{
+  display:grid;
+  grid-column-gap: 8px;
+  grid-template-columns:1fr 3fr;
+  margin-bottom: 8px;
+}
+.product-image {
+  width: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+@media (max-width: 40em) {
+  .filter-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .delivre-header {
+    flex-direction: column;
+  }
+  .p-fluid .p-buttonset {
+    display: flex;
+    flex-direction: column;
+  }
+  .insurance-field{
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+}
