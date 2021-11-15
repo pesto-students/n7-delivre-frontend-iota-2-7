@@ -32,7 +32,6 @@ Go to this url for live access [Delivre App](https://delivre-6843b.web.app).
 ## Product Requirement Document
 
 Read through [PRD](https://iota-2.atlassian.net/wiki/spaces/PESTON7IOT/pages/5865473/Product+Requirement+Document)
-**Note: High Level Design Included** 
 
 ## Wireframe
 
