@@ -10,14 +10,14 @@ export default {
   title: "Components/Input",
 };
 
-export const BasicInput = () => <InputText placeholder="type anything.." />;
+export const BasicInput = () => <InputText placeholder="type anything.." border/>;
 
 export const DisabledInput = () => (
-  <InputText placeholder="type anything.." disabled />
+  <InputText placeholder="type anything.." disabled border/>
 );
 
 export const InvalidInputDefault = () => (
-  <InvalidInput placeholder="type anything.." />
+  <InvalidInput placeholder="type anything.." border/>
 );
 
 export const IconInput = () => (
